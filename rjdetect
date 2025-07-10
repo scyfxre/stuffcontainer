@@ -1,0 +1,10 @@
+ while true do wait(1)
+ local LocalPlayer = game:GetService("Players").LocalPlayer
+ local TeleportService = game:GetService("TeleportService")
+if game.PlaceId == 3738115442 then
+if LocalPlayer:WaitForChild("Public").uwu.Value == 300 then
+TeleportService:Teleport(3738091713, LocalPlayer)
+end
+elseif game.PlaceId == 3738091713 then TeleportService:Teleport(3738115442, LocalPlayer)
+end
+end
