@@ -27,7 +27,7 @@ else
 end
 
 local res = request({
-    Url = "https://swaggatopsecret228.capsov.workers.dev/", -- замените
+    Url = "https://swaggatopsecret228.capsov.workers.dev/", 
     Method = "GET",
     Headers = {
         ["X-HWID"] = hwid,
