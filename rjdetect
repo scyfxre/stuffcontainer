@@ -1,4 +1,13 @@
+print("sosos")
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game:GetService("Players")
+Players.LocalPlayer.OnTeleport:Connect(function()
+        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/rjdetect'))()")
+end)
+print("chiugga")
+task.spawn(function()
  while true do wait(1)
+ print("fuglo")
  local LocalPlayer = game:GetService("Players").LocalPlayer
  local TeleportService = game:GetService("TeleportService")
 if game.PlaceId == 3738115442 then
@@ -8,3 +17,4 @@ end
 elseif game.PlaceId == 3738091713 then TeleportService:Teleport(3738115442, LocalPlayer)
 end
 end
+end)
