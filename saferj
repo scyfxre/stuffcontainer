@@ -5,6 +5,6 @@ Players.LocalPlayer.OnTeleport:Connect(function()
         queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/saferj'))()")
 end)
 
-while true do wait(300)
+while true do wait(350)
 game:GetService("TeleportService"):Teleport(3738091713,LocalPlayer)
 end
