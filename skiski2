@@ -1,0 +1,52 @@
+local request
+	if syn and syn.request then
+		request = syn.request
+	elseif http and http.request then
+		request = http.request
+	elseif fluxus and fluxus.request then
+		request = fluxus.request
+	elseif getgenv().request then
+		request = getgenv().request
+	elseif request then
+		request = request
+	else
+		
+	end
+
+ queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game:GetService("Players")
+
+local hwid = tostring(game:GetService("RbxAnalyticsService"):GetClientId()) 
+local key = "NiggasoHuyaso228"
+
+Players.LocalPlayer.OnTeleport:Connect(function()
+        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/skiski2'))()")
+end)
+
+    	local hwid = tostring(game:GetService("RbxAnalyticsService"):GetClientId())
+	local fileName = "swaggaloaderv105.lua"
+	local placeId = game.PlaceId
+        key = "NiggasoHuyaso228"
+    
+		local data = hwid .. "|" .. key
+		
+		task.wait()
+	
+		local res = request({
+			Url = "https://swaggafourkey.capsov.workers.dev/",
+			Method = "GET",
+			Headers = {
+				["X-HWID"] = hwid,
+				["X-Key"] = key,
+				["X-PlaceId"] = tostring(placeId)
+			}
+		})
+		
+		if res.StatusCode == 200 then
+			warn("[SWAGGA] Access Allowed. Loading Script...")
+			writefile("swaggakeybind.lua", data)
+			loadstring(res.Body)()
+		else
+			warn("[SWAGGA] Access Denied or Key Expired.")
+			warn("Access denied: " .. res.Body)
+		end
