@@ -1,0 +1,107 @@
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game:GetService("Players")
+
+Players.LocalPlayer.OnTeleport:Connect(function()
+        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/dibildio'))()")
+end)
+
+task.spawn(function()
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local LocalPlayer = Players.LocalPlayer
+local Pickups = workspace.WorldIgnore:WaitForChild("Pickups")
+
+local placeId = game.PlaceId
+local cratesCollected = 0
+local maxCrates = 2
+
+local function serverHop()
+    local success, result = pcall(function()
+        return TeleportService:TeleportAsync(placeId, {LocalPlayer})
+    end)
+    if not success then
+        warn("Не удалось сервер-хопнуться:", result)
+    end
+end
+
+local function teleportTo(part)
+    local character = LocalPlayer.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 3, 0)
+    end
+end
+
+local function onCrateCollected(crate)
+    cratesCollected += 1
+    if cratesCollected >= maxCrates then
+        serverHop()
+    end
+end
+
+local function checkExisting()
+    for _, item in ipairs(Pickups:GetChildren()) do
+        if item.Name == "CrateModel" and item:FindFirstChild("Part") then
+            teleportTo(item.Part)
+            onCrateCollected(item)
+        end
+    end
+end
+
+Pickups.ChildAdded:Connect(function(child)
+    if child.Name == "CrateModel" then
+        local part = child:WaitForChild("Part", 5)
+        if part then
+            teleportTo(part)
+            onCrateCollected(child)
+        end
+    end
+end)
+
+LocalPlayer.CharacterAdded:Connect(function(character)
+    character:WaitForChild("HumanoidRootPart")
+    checkExisting()
+end)
+
+checkExisting()
+end)
+
+
+task.spawn(function()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local blacklist = {
+    ["hsl9912"] = true,
+    ["galaxypigeon8"] = true,
+    ["SoftScorpix"] = true,
+    ["gg_getuser"] = true,
+    ["HesCareless"] = true,
+    ["sythain"] = true,
+    ["KaullzHD"] = true,
+    ["karliesTUFFbf"] = true,
+    ["GeoalityLua"] = true,
+    ["Odyssey2280"] = true,
+    ["luckigotmesippin"] = true,
+    ["BitcoinThuggery"] = true,
+    ["NS5Q"] = true,
+    ["artwvrk"] = true,
+    ["MartiAltAcc"] = true,
+    ["slaymen"] = true,
+    ["TrustyNumber1"] = true,
+    ["notime4feelingsorry"] = true,
+}
+
+local function checkPlayer(plr)
+    if blacklist[plr.Name] then
+        LocalPlayer:Kick("Detected blacklisted player: " .. plr.Name)
+    end
+end
+
+for _, plr in ipairs(Players:GetPlayers()) do
+    checkPlayer(plr)
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    checkPlayer(plr)
+end)
+end)
