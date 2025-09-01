@@ -11,17 +11,12 @@ local TeleportService = game:GetService("TeleportService")
 local LocalPlayer = Players.LocalPlayer
 local Pickups = workspace.WorldIgnore:WaitForChild("Pickups")
 
-local placeId = game.PlaceId
 local cratesCollected = 0
 local maxCrates = 2
 
+-- функция hop-а
 local function serverHop()
-    local success, result = pcall(function()
-        return TeleportService:TeleportAsync(placeId, {LocalPlayer})
-    end)
-    if not success then
-        warn("Не удалось сервер-хопнуться:", result)
-    end
+    TeleportService:Teleport(game.PlaceId, LocalPlayer)
 end
 
 local function teleportTo(part)
@@ -31,7 +26,7 @@ local function teleportTo(part)
     end
 end
 
-local function onCrateCollected(crate)
+local function crateCollected(crate)
     cratesCollected += 1
     if cratesCollected >= maxCrates then
         serverHop()
@@ -42,7 +37,7 @@ local function checkExisting()
     for _, item in ipairs(Pickups:GetChildren()) do
         if item.Name == "CrateModel" and item:FindFirstChild("Part") then
             teleportTo(item.Part)
-            onCrateCollected(item)
+            crateCollected(item)
         end
     end
 end
@@ -52,7 +47,7 @@ Pickups.ChildAdded:Connect(function(child)
         local part = child:WaitForChild("Part", 5)
         if part then
             teleportTo(part)
-            onCrateCollected(child)
+            crateCollected(child)
         end
     end
 end)
