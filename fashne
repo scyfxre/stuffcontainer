@@ -1,0 +1,82 @@
+-- SERVICES
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local Workspace = game:GetService("Workspace")
+
+local player = Players.LocalPlayer
+local PlaceId = game.PlaceId
+
+-- SETTINGS
+local TP_OFFSET = Vector3.new(0, 3, 0)
+local SEARCH_DELAY = 0.25
+local ACTIVATE_DELAY = 0.25
+
+Players.LocalPlayer.OnTeleport:Connect(function()
+        queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/fashne'))()")
+end)
+
+-- safe character
+local function getCharacter()
+	return player.Character or player.CharacterAdded:Wait()
+end
+
+-- поиск ВСЕХ scrap в workspace
+local function getAllScraps()
+	local scraps = {}
+
+	for _, obj in pairs(Workspace:GetDescendants()) do
+		if obj.Name == "scrap" and obj:IsA("Model") then
+			table.insert(scraps, obj)
+		end
+	end
+
+	return scraps
+end
+
+-- поиск MeshPart + ProximityPrompt
+local function getMeshAndPrompt(scrapModel)
+	for _, v in pairs(scrapModel:GetDescendants()) do
+		if v:IsA("MeshPart") then
+			local prompt = v:FindFirstChildOfClass("ProximityPrompt")
+			if prompt then
+				return v, prompt
+			end
+		end
+	end
+	return nil, nil
+end
+
+-- teleport
+local function teleportToPart(part)
+	local char = getCharacter()
+	char:MoveTo(part.Position + TP_OFFSET)
+end
+
+-- MAIN LOOP
+while true do
+	local scraps = getAllScraps()
+
+	-- если скрапа нет → rejoin
+	if #scraps == 0 then
+		task.wait(1)
+		player:Kick("\nRejoining...")
+		task.wait()
+		TeleportService:Teleport(PlaceId, player)
+		break
+	end
+
+	for _, scrap in pairs(scraps) do
+		local mesh, prompt = getMeshAndPrompt(scrap)
+
+		if mesh and prompt then
+			teleportToPart(mesh)
+			task.wait(SEARCH_DELAY)
+
+			fireproximityprompt(prompt)
+			task.wait(ACTIVATE_DELAY)
+		end
+	end
+
+	task.wait(SEARCH_DELAY)
+end
