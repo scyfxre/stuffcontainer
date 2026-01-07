@@ -12,10 +12,11 @@ local TP_OFFSET = Vector3.new(0, 3, 0)
 local SEARCH_DELAY = 0.25
 local ACTIVATE_DELAY = 0.25
 
+if game:IsLoaded() then
 Players.LocalPlayer.OnTeleport:Connect(function()
         queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/fashne'))()")
 end)
-
+end
 -- safe character
 local function getCharacter()
 	return player.Character or player.CharacterAdded:Wait()
