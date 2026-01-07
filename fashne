@@ -1,4 +1,3 @@
-if game:IsLoaded() then
 -- SERVICES
 queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local Players = game:GetService("Players")
@@ -13,6 +12,7 @@ local TP_OFFSET = Vector3.new(0, 3, 0)
 local SEARCH_DELAY = 0.25
 local ACTIVATE_DELAY = 0.25
 Players.LocalPlayer.OnTeleport:Connect(function()
+task.wait(7)
         queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/scyfxre/stuffcontainer/refs/heads/main/fashne'))()")
 end)
 -- safe character
@@ -78,5 +78,4 @@ while true do
 	end
 
 	task.wait(SEARCH_DELAY)
-end
 end
