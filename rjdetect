@@ -1,268 +1,2227 @@
-local WORKER_BASE_URL = "https://universalloader.capsov.workers.dev/"
-local LOADER_KEY = "kjhfJKSGDFHJGsyudftyuYSDUIFYTsudfghjsdvhjfghjDSGJK"
-local DISABLE_ANTI_HTTP_SPY = false
+local G2L = {};
 
-local HttpService = game:GetService("HttpService")
-local Analytics = game:GetService("RbxAnalyticsService")
-local Players = game:GetService("Players")
+-- StarterGui.SwaggaSystems107Universal
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["DisplayOrder"] = 999999999;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[SwaggaSystems107Universal]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
-local bit = bit32
-if not bit then
-    bit = {}
-    local MOD = 4294967296
-    local function normalize(n) return n % MOD end
-    local function bxor2(a, b)
-        a, b = normalize(a), normalize(b)
-        local result, bitValue = 0, 1
-        for _ = 0, 31 do
-            local aa, bb = a % 2, b % 2
-            if aa ~= bb then result = result + bitValue end
-            a, b = (a - aa) / 2, (b - bb) / 2
-            bitValue = bitValue * 2
+
+-- StarterGui.SwaggaSystems107Universal.Background
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(19, 20, 22);
+G2L["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["2"]["Size"] = UDim2.new(0, 411, 0, 360);
+G2L["2"]["Position"] = UDim2.new(0.40452, 0, 0.5, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[Background]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.UICorner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+G2L["3"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top
+G2L["4"] = Instance.new("Frame", G2L["2"]);
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["4"]["Size"] = UDim2.new(1, 0, 0.26024, 0);
+G2L["4"]["Position"] = UDim2.new(0.5, 0, 0, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Name"] = [[Top]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.UIGradient
+G2L["5"] = Instance.new("UIGradient", G2L["4"]);
+G2L["5"]["Rotation"] = 90;
+G2L["5"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(30, 34, 39)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(26, 28, 32))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.UICorner
+G2L["6"] = Instance.new("UICorner", G2L["4"]);
+G2L["6"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.Stuff
+G2L["7"] = Instance.new("Frame", G2L["4"]);
+G2L["7"]["ZIndex"] = -228;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["AnchorPoint"] = Vector2.new(0.5, 1);
+G2L["7"]["Size"] = UDim2.new(1, 0, 0.8, 0);
+G2L["7"]["Position"] = UDim2.new(0.5, 0, 1, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Name"] = [[Stuff]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.Stuff.UIGradient
+G2L["8"] = Instance.new("UIGradient", G2L["7"]);
+G2L["8"]["Rotation"] = 90;
+G2L["8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(30, 34, 39)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(26, 28, 32))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.Ico
+G2L["9"] = Instance.new("ImageLabel", G2L["4"]);
+G2L["9"]["BorderSizePixel"] = 0;
+G2L["9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["9"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["9"]["Image"] = [[http://www.roblox.com/asset/?id=107407613667634]];
+G2L["9"]["Size"] = UDim2.new(0.12148, 0, 0.53191, 0);
+G2L["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9"]["BackgroundTransparency"] = 1;
+G2L["9"]["Name"] = [[Ico]];
+G2L["9"]["Position"] = UDim2.new(0.1, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.Swagga
+G2L["a"] = Instance.new("TextLabel", G2L["4"]);
+G2L["a"]["TextWrapped"] = true;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["a"]["TextScaled"] = true;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["a"]["TextColor3"] = Color3.fromRGB(101, 155, 235);
+G2L["a"]["BackgroundTransparency"] = 1;
+G2L["a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a"]["Size"] = UDim2.new(0.28669, 0, 0.38298, 0);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[Swagga]];
+G2L["a"]["Name"] = [[Swagga]];
+G2L["a"]["Position"] = UDim2.new(0.32, 0, 0.39, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.KeySystem
+G2L["b"] = Instance.new("TextLabel", G2L["4"]);
+G2L["b"]["TextWrapped"] = true;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["b"]["TextScaled"] = true;
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["BackgroundTransparency"] = 1;
+G2L["b"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["b"]["Size"] = UDim2.new(0.31827, 0, 0.35106, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[Key System]];
+G2L["b"]["Name"] = [[KeySystem]];
+G2L["b"]["Position"] = UDim2.new(0.335, 0, 0.72, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Top.Version
+G2L["c"] = Instance.new("TextLabel", G2L["4"]);
+G2L["c"]["TextWrapped"] = true;
+G2L["c"]["BorderSizePixel"] = 0;
+G2L["c"]["TextSize"] = 14;
+G2L["c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["c"]["TextTransparency"] = 0.6;
+G2L["c"]["TextScaled"] = true;
+G2L["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c"]["BackgroundTransparency"] = 1;
+G2L["c"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["c"]["Size"] = UDim2.new(0.1482, 0, 0.24468, 0);
+G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c"]["Text"] = [[v1.0.7]];
+G2L["c"]["Name"] = [[Version]];
+G2L["c"]["Position"] = UDim2.new(0.58, 0, 0.762, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.UIStroke
+G2L["d"] = Instance.new("UIStroke", G2L["2"]);
+G2L["d"]["Thickness"] = 2;
+G2L["d"]["Color"] = Color3.fromRGB(45, 47, 53);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyBox
+G2L["e"] = Instance.new("Frame", G2L["2"]);
+G2L["e"]["BorderSizePixel"] = 0;
+G2L["e"]["BackgroundColor3"] = Color3.fromRGB(23, 25, 28);
+G2L["e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["e"]["Size"] = UDim2.new(0.799, 0, 0.22, 0);
+G2L["e"]["Position"] = UDim2.new(0.5, 0, 0.58, 0);
+G2L["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["e"]["Name"] = [[KeyBox]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyBox.UIStroke
+G2L["f"] = Instance.new("UIStroke", G2L["e"]);
+G2L["f"]["Thickness"] = 2;
+G2L["f"]["Color"] = Color3.fromRGB(45, 47, 53);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyBox.UICorner
+G2L["10"] = Instance.new("UICorner", G2L["e"]);
+G2L["10"]["CornerRadius"] = UDim.new(0, 15);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyBox.TextBox
+G2L["11"] = Instance.new("TextBox", G2L["e"]);
+G2L["11"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["11"]["PlaceholderColor3"] = Color3.fromRGB(127, 127, 127);
+G2L["11"]["BorderSizePixel"] = 0;
+G2L["11"]["TextWrapped"] = true;
+G2L["11"]["TextSize"] = 14;
+G2L["11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["11"]["TextScaled"] = true;
+G2L["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["11"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["11"]["ClearTextOnFocus"] = false;
+G2L["11"]["PlaceholderText"] = [[Enter Key]];
+G2L["11"]["Size"] = UDim2.new(0.9, 0, 1, 0);
+G2L["11"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["Text"] = [[]];
+G2L["11"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyBox.TextBox.UITextSizeConstraint
+G2L["12"] = Instance.new("UITextSizeConstraint", G2L["11"]);
+G2L["12"]["MaxTextSize"] = 30;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeySystem
+G2L["13"] = Instance.new("TextLabel", G2L["2"]);
+G2L["13"]["TextWrapped"] = true;
+G2L["13"]["BorderSizePixel"] = 0;
+G2L["13"]["TextSize"] = 14;
+G2L["13"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["13"]["TextScaled"] = true;
+G2L["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["13"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["BackgroundTransparency"] = 1;
+G2L["13"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["13"]["Size"] = UDim2.new(0.55517, 0, 0.12277, 0);
+G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Text"] = [[Enter Your Access Key]];
+G2L["13"]["Name"] = [[KeySystem]];
+G2L["13"]["Position"] = UDim2.new(0.37651, 0, 0.377, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify
+G2L["14"] = Instance.new("ImageButton", G2L["2"]);
+G2L["14"]["BorderSizePixel"] = 0;
+G2L["14"]["AutoButtonColor"] = false;
+G2L["14"]["ImageTransparency"] = 1;
+G2L["14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["14"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["14"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["14"]["Size"] = UDim2.new(0.45, 0, 0.18, 0);
+G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["14"]["Name"] = [[Verify]];
+G2L["14"]["Position"] = UDim2.new(0.31787, 0, 0.8443, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.UICorner
+G2L["15"] = Instance.new("UICorner", G2L["14"]);
+G2L["15"]["CornerRadius"] = UDim.new(0, 15);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.UIGradient
+G2L["16"] = Instance.new("UIGradient", G2L["14"]);
+G2L["16"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(57, 117, 241)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(89, 44, 203))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.TextLabel
+G2L["17"] = Instance.new("TextLabel", G2L["14"]);
+G2L["17"]["TextWrapped"] = true;
+G2L["17"]["BorderSizePixel"] = 0;
+G2L["17"]["TextSize"] = 14;
+G2L["17"]["TextScaled"] = true;
+G2L["17"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["17"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["17"]["BackgroundTransparency"] = 1;
+G2L["17"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["17"]["Size"] = UDim2.new(0.9, 0, 0.8, 0);
+G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["17"]["Text"] = [[Verify]];
+G2L["17"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.TextLabel.UITextSizeConstraint
+G2L["18"] = Instance.new("UITextSizeConstraint", G2L["17"]);
+G2L["18"]["MaxTextSize"] = 35;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.Neo
+G2L["19"] = Instance.new("ImageLabel", G2L["14"]);
+G2L["19"]["ZIndex"] = -3;
+G2L["19"]["BorderSizePixel"] = 0;
+G2L["19"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["19"]["ImageTransparency"] = 1;
+G2L["19"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["19"]["Image"] = [[http://www.roblox.com/asset/?id=114472628249347]];
+G2L["19"]["Size"] = UDim2.new(1.21477, 0, 1.61499, 0);
+G2L["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["19"]["BackgroundTransparency"] = 1;
+G2L["19"]["Name"] = [[Neo]];
+G2L["19"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.Neo.UIGradient
+G2L["1a"] = Instance.new("UIGradient", G2L["19"]);
+G2L["1a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(57, 117, 241)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(57, 117, 241))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.Verify.UIScale
+G2L["1b"] = Instance.new("UIScale", G2L["14"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey
+G2L["1c"] = Instance.new("ImageButton", G2L["2"]);
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["AutoButtonColor"] = false;
+G2L["1c"]["ImageTransparency"] = 1;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(23, 25, 28);
+G2L["1c"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["1c"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["1c"]["Size"] = UDim2.new(0.31918, 0, 0.18, 0);
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Name"] = [[GetKey]];
+G2L["1c"]["Position"] = UDim2.new(0.73351, 0, 0.8443, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.UICorner
+G2L["1d"] = Instance.new("UICorner", G2L["1c"]);
+G2L["1d"]["CornerRadius"] = UDim.new(0, 15);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.UIStroke
+G2L["1e"] = Instance.new("UIStroke", G2L["1c"]);
+G2L["1e"]["Thickness"] = 2;
+G2L["1e"]["Color"] = Color3.fromRGB(45, 47, 53);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.TextLabel
+G2L["1f"] = Instance.new("TextLabel", G2L["1c"]);
+G2L["1f"]["TextWrapped"] = true;
+G2L["1f"]["BorderSizePixel"] = 0;
+G2L["1f"]["TextSize"] = 14;
+G2L["1f"]["TextScaled"] = true;
+G2L["1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1f"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1f"]["BackgroundTransparency"] = 1;
+G2L["1f"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["1f"]["Size"] = UDim2.new(0.63, 0, 0.592, 0);
+G2L["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1f"]["Text"] = [[Get Key]];
+G2L["1f"]["Position"] = UDim2.new(0.63, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.TextLabel.UITextSizeConstraint
+G2L["20"] = Instance.new("UITextSizeConstraint", G2L["1f"]);
+G2L["20"]["MaxTextSize"] = 30;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.Mag
+G2L["21"] = Instance.new("ImageLabel", G2L["1c"]);
+G2L["21"]["BorderSizePixel"] = 0;
+G2L["21"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["21"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["21"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["21"]["Image"] = [[http://www.roblox.com/asset/?id=137239039329719]];
+G2L["21"]["Size"] = UDim2.new(0.30447, 0, 0.61523, 0);
+G2L["21"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["21"]["BackgroundTransparency"] = 1;
+G2L["21"]["Name"] = [[Mag]];
+G2L["21"]["Position"] = UDim2.new(0.17, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.Magneo
+G2L["22"] = Instance.new("ImageLabel", G2L["1c"]);
+G2L["22"]["BorderSizePixel"] = 0;
+G2L["22"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["22"]["ImageTransparency"] = 1;
+G2L["22"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["22"]["Image"] = [[http://www.roblox.com/asset/?id=124739890372120]];
+G2L["22"]["Size"] = UDim2.new(0.49476, 0, 0.99975, 0);
+G2L["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["22"]["BackgroundTransparency"] = 1;
+G2L["22"]["Name"] = [[Magneo]];
+G2L["22"]["Position"] = UDim2.new(0.164, 0, 0.525, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.GetKey.UIScale
+G2L["23"] = Instance.new("UIScale", G2L["1c"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.UIAspectRatioConstraint
+G2L["24"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
+G2L["24"]["AspectRatio"] = 1.13953;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.UIScale
+G2L["25"] = Instance.new("UIScale", G2L["2"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs
+G2L["26"] = Instance.new("Frame", G2L["2"]);
+G2L["26"]["BorderSizePixel"] = 0;
+G2L["26"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["26"]["AnchorPoint"] = Vector2.new(0, 0.5);
+G2L["26"]["Size"] = UDim2.new(0.56268, 0, 1, 0);
+G2L["26"]["Position"] = UDim2.new(1.05, 0, 0.5, 0);
+G2L["26"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["26"]["Name"] = [[KeyLogs]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.UICorner
+G2L["27"] = Instance.new("UICorner", G2L["26"]);
+G2L["27"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top
+G2L["28"] = Instance.new("Frame", G2L["26"]);
+G2L["28"]["BorderSizePixel"] = 0;
+G2L["28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["28"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["28"]["Size"] = UDim2.new(1, 0, 0.26024, 0);
+G2L["28"]["Position"] = UDim2.new(0.5, 0, 0, 0);
+G2L["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["Name"] = [[Top]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.UIGradient
+G2L["29"] = Instance.new("UIGradient", G2L["28"]);
+G2L["29"]["Rotation"] = 90;
+G2L["29"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(36, 30, 29)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(30, 24, 21))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.UICorner
+G2L["2a"] = Instance.new("UICorner", G2L["28"]);
+G2L["2a"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.Stuff
+G2L["2b"] = Instance.new("Frame", G2L["28"]);
+G2L["2b"]["ZIndex"] = 0;
+G2L["2b"]["BorderSizePixel"] = 0;
+G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2b"]["AnchorPoint"] = Vector2.new(0.5, 1);
+G2L["2b"]["Size"] = UDim2.new(1, 0, 0.8, 0);
+G2L["2b"]["Position"] = UDim2.new(0.5, 0, 1, 0);
+G2L["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["Name"] = [[Stuff]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.Stuff.UIGradient
+G2L["2c"] = Instance.new("UIGradient", G2L["2b"]);
+G2L["2c"]["Rotation"] = 90;
+G2L["2c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(36, 30, 29)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(30, 24, 21))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.Ico
+G2L["2d"] = Instance.new("ImageLabel", G2L["28"]);
+G2L["2d"]["BorderSizePixel"] = 0;
+G2L["2d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2d"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["2d"]["Image"] = [[http://www.roblox.com/asset/?id=103624218350808]];
+G2L["2d"]["Size"] = UDim2.new(0.15112, 0, 0.42553, 0);
+G2L["2d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2d"]["BackgroundTransparency"] = 1;
+G2L["2d"]["Name"] = [[Ico]];
+G2L["2d"]["Position"] = UDim2.new(0.16908, 0, 0.54255, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.KeyLogs
+G2L["2e"] = Instance.new("TextLabel", G2L["28"]);
+G2L["2e"]["TextWrapped"] = true;
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["TextSize"] = 14;
+G2L["2e"]["TextScaled"] = true;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2e"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["2e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2e"]["BackgroundTransparency"] = 1;
+G2L["2e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["2e"]["Size"] = UDim2.new(0.6, 0, 0.4, 0);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["Text"] = [[Key Logs]];
+G2L["2e"]["Name"] = [[KeyLogs]];
+G2L["2e"]["Position"] = UDim2.new(0.625, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.Close
+G2L["2f"] = Instance.new("ImageButton", G2L["28"]);
+G2L["2f"]["BorderSizePixel"] = 0;
+G2L["2f"]["ImageTransparency"] = 1;
+G2L["2f"]["BackgroundTransparency"] = 1;
+G2L["2f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2f"]["AnchorPoint"] = Vector2.new(1, 0);
+G2L["2f"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["2f"]["Size"] = UDim2.new(0.07289, 0, 0.31915, 0);
+G2L["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2f"]["Name"] = [[Close]];
+G2L["2f"]["Position"] = UDim2.new(0.97813, 0, 0.09492, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.Top.Close.UIGradient
+G2L["30"] = Instance.new("UIGradient", G2L["2f"]);
+G2L["30"]["Rotation"] = 50;
+G2L["30"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(244, 77, 88)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(223, 37, 52))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.UIStroke
+G2L["31"] = Instance.new("UIStroke", G2L["26"]);
+G2L["31"]["Thickness"] = 2;
+G2L["31"]["Color"] = Color3.fromRGB(45, 47, 53);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.UIGradient
+G2L["32"] = Instance.new("UIGradient", G2L["26"]);
+G2L["32"]["Rotation"] = 90;
+G2L["32"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 24, 21)),ColorSequenceKeypoint.new(0.606, Color3.fromRGB(19, 20, 22)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(19, 20, 22))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.ScrollingFrame
+G2L["33"] = Instance.new("ScrollingFrame", G2L["26"]);
+G2L["33"]["Active"] = true;
+G2L["33"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["33"]["BorderSizePixel"] = 0;
+G2L["33"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+G2L["33"]["ScrollBarImageTransparency"] = 1;
+G2L["33"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["33"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["33"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+G2L["33"]["Size"] = UDim2.new(0, 231, 0, 266);
+G2L["33"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["33"]["Position"] = UDim2.new(0.49914, 0, 0.62971, 0);
+G2L["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["33"]["ScrollBarThickness"] = 0;
+G2L["33"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.ScrollingFrame.UIListLayout
+G2L["34"] = Instance.new("UIListLayout", G2L["33"]);
+G2L["34"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["34"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle
+G2L["35"] = Instance.new("Folder", G2L["26"]);
+G2L["35"]["Name"] = [[KHandle]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1
+G2L["36"] = Instance.new("Frame", G2L["35"]);
+G2L["36"]["Visible"] = false;
+G2L["36"]["BorderSizePixel"] = 0;
+G2L["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["36"]["Size"] = UDim2.new(1, 0, 0.25, 0);
+G2L["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["36"]["Name"] = [[Check1]];
+G2L["36"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.ico
+G2L["37"] = Instance.new("ImageLabel", G2L["36"]);
+G2L["37"]["BorderSizePixel"] = 0;
+G2L["37"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["37"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["37"]["ImageColor3"] = Color3.fromRGB(0, 255, 255);
+G2L["37"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["37"]["Image"] = [[rbxassetid://11419719540]];
+G2L["37"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["37"]["BackgroundTransparency"] = 1;
+G2L["37"]["Name"] = [[ico]];
+G2L["37"]["Position"] = UDim2.new(0.12, 0, 0.33, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.ico.UIScale
+G2L["38"] = Instance.new("UIScale", G2L["37"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.Reason
+G2L["39"] = Instance.new("TextLabel", G2L["36"]);
+G2L["39"]["TextWrapped"] = true;
+G2L["39"]["BorderSizePixel"] = 0;
+G2L["39"]["TextSize"] = 14;
+G2L["39"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["39"]["TextScaled"] = true;
+G2L["39"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["39"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["39"]["BackgroundTransparency"] = 1;
+G2L["39"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["39"]["Size"] = UDim2.new(0.72318, 0, 0.4, 0);
+G2L["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["39"]["Text"] = [[Copied To Your Clipboard]];
+G2L["39"]["Name"] = [[Reason]];
+G2L["39"]["Position"] = UDim2.new(0.60434, 0, 0.3, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.Time
+G2L["3a"] = Instance.new("TextLabel", G2L["36"]);
+G2L["3a"]["TextWrapped"] = true;
+G2L["3a"]["BorderSizePixel"] = 0;
+G2L["3a"]["TextSize"] = 14;
+G2L["3a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["3a"]["TextTransparency"] = 0.6;
+G2L["3a"]["TextScaled"] = true;
+G2L["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["3a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3a"]["BackgroundTransparency"] = 1;
+G2L["3a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["3a"]["Size"] = UDim2.new(0.38119, 0, 0.47444, 0);
+G2L["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3a"]["Text"] = [[14:88 AM]];
+G2L["3a"]["Name"] = [[Time]];
+G2L["3a"]["Position"] = UDim2.new(0.43332, 0, 0.76278, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.Time.UITextSizeConstraint
+G2L["3b"] = Instance.new("UITextSizeConstraint", G2L["3a"]);
+G2L["3b"]["MaxTextSize"] = 22;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check1.UIScale
+G2L["3c"] = Instance.new("UIScale", G2L["36"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck
+G2L["3d"] = Instance.new("Frame", G2L["35"]);
+G2L["3d"]["Visible"] = false;
+G2L["3d"]["BorderSizePixel"] = 0;
+G2L["3d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3d"]["Size"] = UDim2.new(1, 0, 0.25, 0);
+G2L["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3d"]["Name"] = [[Redcheck]];
+G2L["3d"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.Reason
+G2L["3e"] = Instance.new("TextLabel", G2L["3d"]);
+G2L["3e"]["TextWrapped"] = true;
+G2L["3e"]["BorderSizePixel"] = 0;
+G2L["3e"]["TextSize"] = 14;
+G2L["3e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["3e"]["TextScaled"] = true;
+G2L["3e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["3e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3e"]["BackgroundTransparency"] = 1;
+G2L["3e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["3e"]["Size"] = UDim2.new(0.68422, 0, 0.4, 0);
+G2L["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3e"]["Text"] = [[Invalid Key]];
+G2L["3e"]["Name"] = [[Reason]];
+G2L["3e"]["Position"] = UDim2.new(0.58486, 0, 0.3, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.Time
+G2L["3f"] = Instance.new("TextLabel", G2L["3d"]);
+G2L["3f"]["TextWrapped"] = true;
+G2L["3f"]["BorderSizePixel"] = 0;
+G2L["3f"]["TextSize"] = 14;
+G2L["3f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["3f"]["TextTransparency"] = 0.6;
+G2L["3f"]["TextScaled"] = true;
+G2L["3f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3f"]["BackgroundTransparency"] = 1;
+G2L["3f"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["3f"]["Size"] = UDim2.new(0.38119, 0, 0.47444, 0);
+G2L["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3f"]["Text"] = [[22:08 AM]];
+G2L["3f"]["Name"] = [[Time]];
+G2L["3f"]["Position"] = UDim2.new(0.43332, 0, 0.76278, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.Time.UITextSizeConstraint
+G2L["40"] = Instance.new("UITextSizeConstraint", G2L["3f"]);
+G2L["40"]["MaxTextSize"] = 22;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.UIScale
+G2L["41"] = Instance.new("UIScale", G2L["3d"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.ico
+G2L["42"] = Instance.new("ImageLabel", G2L["3d"]);
+G2L["42"]["BorderSizePixel"] = 0;
+G2L["42"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["42"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["42"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["42"]["Image"] = [[http://www.roblox.com/asset/?id=125989752542956]];
+G2L["42"]["Size"] = UDim2.new(0, 26, 0, 26);
+G2L["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["42"]["BackgroundTransparency"] = 1;
+G2L["42"]["Name"] = [[ico]];
+G2L["42"]["Position"] = UDim2.new(0.12, 0, 0.33, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.ico.UIGradient
+G2L["43"] = Instance.new("UIGradient", G2L["42"]);
+G2L["43"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(253, 127, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(244, 113, 76))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Redcheck.ico.UIScale
+G2L["44"] = Instance.new("UIScale", G2L["42"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2
+G2L["45"] = Instance.new("Frame", G2L["35"]);
+G2L["45"]["Visible"] = false;
+G2L["45"]["BorderSizePixel"] = 0;
+G2L["45"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["45"]["Size"] = UDim2.new(1, 0, 0.25, 0);
+G2L["45"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["45"]["Name"] = [[Check2]];
+G2L["45"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.ico
+G2L["46"] = Instance.new("ImageLabel", G2L["45"]);
+G2L["46"]["BorderSizePixel"] = 0;
+G2L["46"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["46"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["46"]["ImageColor3"] = Color3.fromRGB(179, 223, 186);
+G2L["46"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["46"]["Image"] = [[rbxassetid://11419719540]];
+G2L["46"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["46"]["BackgroundTransparency"] = 1;
+G2L["46"]["Name"] = [[ico]];
+G2L["46"]["Position"] = UDim2.new(0.12, 0, 0.33, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.ico.UIScale
+G2L["47"] = Instance.new("UIScale", G2L["46"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.Reason
+G2L["48"] = Instance.new("TextLabel", G2L["45"]);
+G2L["48"]["TextWrapped"] = true;
+G2L["48"]["BorderSizePixel"] = 0;
+G2L["48"]["TextSize"] = 14;
+G2L["48"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["48"]["TextScaled"] = true;
+G2L["48"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["48"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["48"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["48"]["BackgroundTransparency"] = 1;
+G2L["48"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["48"]["Size"] = UDim2.new(0.68422, 0, 0.4, 0);
+G2L["48"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["48"]["Text"] = [[Validated Key]];
+G2L["48"]["Name"] = [[Reason]];
+G2L["48"]["Position"] = UDim2.new(0.58486, 0, 0.3, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.Time
+G2L["49"] = Instance.new("TextLabel", G2L["45"]);
+G2L["49"]["TextWrapped"] = true;
+G2L["49"]["BorderSizePixel"] = 0;
+G2L["49"]["TextSize"] = 14;
+G2L["49"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["49"]["TextTransparency"] = 0.6;
+G2L["49"]["TextScaled"] = true;
+G2L["49"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["49"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["49"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["49"]["BackgroundTransparency"] = 1;
+G2L["49"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["49"]["Size"] = UDim2.new(0.38119, 0, 0.47444, 0);
+G2L["49"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["49"]["Text"] = [[14:88 AM]];
+G2L["49"]["Name"] = [[Time]];
+G2L["49"]["Position"] = UDim2.new(0.43332, 0, 0.76278, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.Time.UITextSizeConstraint
+G2L["4a"] = Instance.new("UITextSizeConstraint", G2L["49"]);
+G2L["4a"]["MaxTextSize"] = 22;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Check2.UIScale
+G2L["4b"] = Instance.new("UIScale", G2L["45"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time
+G2L["4c"] = Instance.new("Frame", G2L["35"]);
+G2L["4c"]["Visible"] = false;
+G2L["4c"]["BorderSizePixel"] = 0;
+G2L["4c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4c"]["Size"] = UDim2.new(1, 0, 0.25, 0);
+G2L["4c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4c"]["Name"] = [[Time]];
+G2L["4c"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.Reason
+G2L["4d"] = Instance.new("TextLabel", G2L["4c"]);
+G2L["4d"]["TextWrapped"] = true;
+G2L["4d"]["BorderSizePixel"] = 0;
+G2L["4d"]["TextSize"] = 14;
+G2L["4d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["4d"]["TextScaled"] = true;
+G2L["4d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4d"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["4d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4d"]["BackgroundTransparency"] = 1;
+G2L["4d"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["4d"]["Size"] = UDim2.new(0.68422, 0, 0.4, 0);
+G2L["4d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4d"]["Text"] = [[Attempted]];
+G2L["4d"]["Name"] = [[Reason]];
+G2L["4d"]["Position"] = UDim2.new(0.58486, 0, 0.3, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.Time
+G2L["4e"] = Instance.new("TextLabel", G2L["4c"]);
+G2L["4e"]["TextWrapped"] = true;
+G2L["4e"]["BorderSizePixel"] = 0;
+G2L["4e"]["TextSize"] = 14;
+G2L["4e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["4e"]["TextTransparency"] = 0.6;
+G2L["4e"]["TextScaled"] = true;
+G2L["4e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4e"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["4e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4e"]["BackgroundTransparency"] = 1;
+G2L["4e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["4e"]["Size"] = UDim2.new(0.38119, 0, 0.47444, 0);
+G2L["4e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4e"]["Text"] = [[13:37 AM]];
+G2L["4e"]["Name"] = [[Time]];
+G2L["4e"]["Position"] = UDim2.new(0.43332, 0, 0.76278, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.Time.UITextSizeConstraint
+G2L["4f"] = Instance.new("UITextSizeConstraint", G2L["4e"]);
+G2L["4f"]["MaxTextSize"] = 22;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.ico
+G2L["50"] = Instance.new("ImageLabel", G2L["4c"]);
+G2L["50"]["BorderSizePixel"] = 0;
+G2L["50"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["50"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["50"]["ImageColor3"] = Color3.fromRGB(180, 183, 188);
+G2L["50"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["50"]["Image"] = [[rbxassetid://11963371162]];
+G2L["50"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["50"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["50"]["BackgroundTransparency"] = 1;
+G2L["50"]["Name"] = [[ico]];
+G2L["50"]["Position"] = UDim2.new(0.12, 0, 0.33, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.ico.UIScale
+G2L["51"] = Instance.new("UIScale", G2L["50"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.KHandle.Time.UIScale
+G2L["52"] = Instance.new("UIScale", G2L["4c"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.UIAspectRatioConstraint
+G2L["53"] = Instance.new("UIAspectRatioConstraint", G2L["26"]);
+G2L["53"]["AspectRatio"] = 0.6412;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.KeyLogs.UIScale
+G2L["54"] = Instance.new("UIScale", G2L["26"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod
+G2L["55"] = Instance.new("ImageButton", G2L["2"]);
+G2L["55"]["BorderSizePixel"] = 0;
+G2L["55"]["AutoButtonColor"] = false;
+G2L["55"]["ImageTransparency"] = 1;
+G2L["55"]["BackgroundColor3"] = Color3.fromRGB(97, 48, 255);
+G2L["55"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["55"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["55"]["Size"] = UDim2.new(0.2, 0, 0.1, 0);
+G2L["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["55"]["Name"] = [[SelectMethod]];
+G2L["55"]["Position"] = UDim2.new(0.8, 0, 0.386, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.UICorner
+G2L["56"] = Instance.new("UICorner", G2L["55"]);
+G2L["56"]["CornerRadius"] = UDim.new(0, 15);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.Gradient
+G2L["57"] = Instance.new("Frame", G2L["55"]);
+G2L["57"]["BorderSizePixel"] = 0;
+G2L["57"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["57"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["57"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["57"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+G2L["57"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["57"]["Name"] = [[Gradient]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.Gradient.UICorner
+G2L["58"] = Instance.new("UICorner", G2L["57"]);
+G2L["58"]["CornerRadius"] = UDim.new(0, 15);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.Gradient.UIGradient
+G2L["59"] = Instance.new("UIGradient", G2L["57"]);
+G2L["59"]["Rotation"] = 50;
+G2L["59"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(1.000, 1)};
+G2L["59"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(57, 117, 241)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(57, 117, 241))};
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.TextLabel
+G2L["5a"] = Instance.new("TextLabel", G2L["55"]);
+G2L["5a"]["TextWrapped"] = true;
+G2L["5a"]["BorderSizePixel"] = 0;
+G2L["5a"]["TextSize"] = 14;
+G2L["5a"]["TextScaled"] = true;
+G2L["5a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["5a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5a"]["BackgroundTransparency"] = 1;
+G2L["5a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["5a"]["Size"] = UDim2.new(0.9, 0, 0.8, 0);
+G2L["5a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5a"]["Text"] = [[Paid]];
+G2L["5a"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.TextLabel.UITextSizeConstraint
+G2L["5b"] = Instance.new("UITextSizeConstraint", G2L["5a"]);
+G2L["5b"]["MaxTextSize"] = 27;
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.UIShadow
+G2L["5c"] = Instance.new("UIShadow", G2L["55"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Background.SelectMethod.UIScale
+G2L["5d"] = Instance.new("UIScale", G2L["55"]);
+
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims
+G2L["5e"] = Instance.new("Folder", G2L["1"]);
+G2L["5e"]["Name"] = [[Anims]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.AnimHandle
+G2L["5f"] = Instance.new("ModuleScript", G2L["5e"]);
+G2L["5f"]["Name"] = [[AnimHandle]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.Handle
+G2L["60"] = Instance.new("LocalScript", G2L["5e"]);
+G2L["60"]["Name"] = [[Handle]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.DecalsHandle
+G2L["61"] = Instance.new("Folder", G2L["5e"]);
+G2L["61"]["Name"] = [[DecalsHandle]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.DecalsHandle.AppearSEffect
+G2L["62"] = Instance.new("ImageLabel", G2L["61"]);
+G2L["62"]["ZIndex"] = 99;
+G2L["62"]["BorderSizePixel"] = 0;
+G2L["62"]["SliceCenter"] = Rect.new(180, 186, 180, 186);
+G2L["62"]["ScaleType"] = Enum.ScaleType.Slice;
+G2L["62"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["62"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["62"]["Image"] = [[http://www.roblox.com/asset/?id=117236147855659]];
+G2L["62"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["62"]["Visible"] = false;
+G2L["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["62"]["BackgroundTransparency"] = 1;
+G2L["62"]["Name"] = [[AppearSEffect]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.DecalsHandle.AppearSEffect.UIScale
+G2L["63"] = Instance.new("UIScale", G2L["62"]);
+G2L["63"]["Scale"] = 0;
+
+
+-- StarterGui.SwaggaSystems107Universal.Anims.BeforeKey
+G2L["64"] = Instance.new("LocalScript", G2L["5e"]);
+G2L["64"]["Name"] = [[BeforeKey]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading
+G2L["65"] = Instance.new("Frame", G2L["1"]);
+G2L["65"]["ZIndex"] = 0;
+G2L["65"]["BorderSizePixel"] = 0;
+G2L["65"]["BackgroundColor3"] = Color3.fromRGB(19, 20, 22);
+G2L["65"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["65"]["Size"] = UDim2.new(0, 411, 0, 135);
+G2L["65"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+G2L["65"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["65"]["Name"] = [[Loading]];
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.UICorner
+G2L["66"] = Instance.new("UICorner", G2L["65"]);
+G2L["66"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.Ready
+G2L["67"] = Instance.new("TextLabel", G2L["65"]);
+G2L["67"]["TextWrapped"] = true;
+G2L["67"]["BorderSizePixel"] = 0;
+G2L["67"]["TextSize"] = 14;
+G2L["67"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["67"]["TextTransparency"] = 0.2;
+G2L["67"]["TextScaled"] = true;
+G2L["67"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["67"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["67"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["67"]["BackgroundTransparency"] = 1;
+G2L["67"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["67"]["Size"] = UDim2.new(0.40201, 0, 0.3, 0);
+G2L["67"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["67"]["Text"] = [[Ready to conquer the games?]];
+G2L["67"]["Name"] = [[Ready]];
+G2L["67"]["Position"] = UDim2.new(0.44872, 0, 0.62484, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.Ico
+G2L["68"] = Instance.new("ImageLabel", G2L["65"]);
+G2L["68"]["ZIndex"] = 2;
+G2L["68"]["BorderSizePixel"] = 0;
+G2L["68"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["68"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["68"]["Image"] = [[http://www.roblox.com/asset/?id=82481105193883]];
+G2L["68"]["Size"] = UDim2.new(0, 80, 0, 80);
+G2L["68"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["68"]["BackgroundTransparency"] = 1;
+G2L["68"]["Name"] = [[Ico]];
+G2L["68"]["Position"] = UDim2.new(0.13, 0, 0.5, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.Validating
+G2L["69"] = Instance.new("TextLabel", G2L["65"]);
+G2L["69"]["TextWrapped"] = true;
+G2L["69"]["BorderSizePixel"] = 0;
+G2L["69"]["TextSize"] = 14;
+G2L["69"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["69"]["TextTransparency"] = 0.2;
+G2L["69"]["TextScaled"] = true;
+G2L["69"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["69"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["BackgroundTransparency"] = 1;
+G2L["69"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["69"]["Size"] = UDim2.new(0.33761, 0, 0.19934, 0);
+G2L["69"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["69"]["Text"] = [[Validating Info...]];
+G2L["69"]["Name"] = [[Validating]];
+G2L["69"]["Position"] = UDim2.new(0.8, 0, 0.88, 0);
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.Validating.UITextSizeConstraint
+G2L["6a"] = Instance.new("UITextSizeConstraint", G2L["69"]);
+G2L["6a"]["MaxTextSize"] = 19;
+
+
+-- StarterGui.SwaggaSystems107Universal.Loading.Motive
+G2L["6b"] = Instance.new("TextLabel", G2L["65"]);
+G2L["6b"]["TextWrapped"] = true;
+G2L["6b"]["BorderSizePixel"] = 0;
+G2L["6b"]["TextSize"] = 14;
+G2L["6b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["6b"]["TextScaled"] = true;
+G2L["6b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["6b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6b"]["BackgroundTransparency"] = 1;
+G2L["6b"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["6b"]["Size"] = UDim2.new(0.66197, 0, 0.3, 0);
+G2L["6b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6b"]["Text"] = [[SWAGGA HUB System]];
+G2L["6b"]["Name"] = [[Motive]];
+G2L["6b"]["Position"] = UDim2.new(0.58, 0, 0.352, 0);
+
+
+-- Require G2L wrapper
+local G2L_REQUIRE = require;
+local G2L_MODULES = {};
+local function require(Module:ModuleScript)
+    local ModuleState = G2L_MODULES[Module];
+    if ModuleState then
+        if not ModuleState.Required then
+            ModuleState.Required = true;
+            ModuleState.Value = ModuleState.Closure();
         end
-        return result
-    end
-    local function band2(a, b)
-        a, b = normalize(a), normalize(b)
-        local result, bitValue = 0, 1
-        for _ = 0, 31 do
-            local aa, bb = a % 2, b % 2
-            if aa == 1 and bb == 1 then result = result + bitValue end
-            a, b = (a - aa) / 2, (b - bb) / 2
-            bitValue = bitValue * 2
-        end
-        return result
-    end
-    local function bor2(a, b)
-        a, b = normalize(a), normalize(b)
-        local result, bitValue = 0, 1
-        for _ = 0, 31 do
-            local aa, bb = a % 2, b % 2
-            if aa == 1 or bb == 1 then result = result + bitValue end
-            a, b = (a - aa) / 2, (b - bb) / 2
-            bitValue = bitValue * 2
-        end
-        return result
-    end
-    function bit.bxor(a, b, ...) local r = bxor2(a, b) for i = 1, select("#", ...) do r = bxor2(r, select(i, ...)) end return r end
-    function bit.band(a, b, ...) local r = band2(a, b) for i = 1, select("#", ...) do r = band2(r, select(i, ...)) end return r end
-    function bit.bor(a, b, ...) local r = bor2(a, b) for i = 1, select("#", ...) do r = bor2(r, select(i, ...)) end return r end
-    function bit.bnot(a) return 4294967295 - normalize(a) end
-    function bit.rshift(a, d) if d >= 32 then return 0 end return math.floor(normalize(a) / (2 ^ d)) end
-    function bit.lshift(a, d) if d >= 32 then return 0 end return normalize(normalize(a) * (2 ^ d)) end
-    function bit.rrotate(a, d) d = d % 32 if d == 0 then return normalize(a) end return bit.bor(bit.rshift(a, d), bit.lshift(a, 32 - d)) end
+        return ModuleState.Value;
+    end;
+    return G2L_REQUIRE(Module);
 end
 
-local bxor    = bit.bxor
-local band    = bit.band
-local bnot    = bit.bnot
-local rshift  = bit.rshift
-local rrotate = bit.rrotate
+G2L_MODULES[G2L["5f"]] = {
+Closure = function()
+    local script = G2L["5f"];--LOCALS
 
-local function add32(...)
-    local r = 0
-    for i = 1, select("#", ...) do r = (r + select(i, ...)) % 4294967296 end
-    return r
+local TweenService = game:GetService("TweenService")
+
+local Core = script.Parent
+
+local player = game:GetService("Players").LocalPlayer
+
+local camera = workspace.CurrentCamera
+
+local RunService = game:GetService("RunService")
+
+local Mouse = player:GetMouse()
+
+local module = {}
+
+--LOCALS
+
+
+--OBJECT MODIFICATIONS
+
+module.Scale = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,value)
+	
+	TweenService:Create(way.UIScale, 
+		
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+		
+		{Scale = value}):Play()
+	
 end
 
-local SHA256_K = {
-    0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
-    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
-    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
-    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
-    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
-    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
-    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
-    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2,
-}
+module.Position = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y,IsLooped,ResetValueX,ResetValueY)
+	
+	local tweenplay = TweenService:Create(way, 
 
-local function numToBytes(v, c)
-    local o = ""
-    for _ = 1, c do local b = v % 256 o = string.char(b) .. o v = (v - b) / 256 end
-    return o
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Position = UDim2.new(x,0,y,0)})
+	
+	tweenplay:Play()
+
+	if IsLooped == true then
+		tweenplay.Completed:Connect(function()
+			way.Position = UDim2.fromScale(ResetValueX,ResetValueY)
+		end)
+	else
+		
+	end
+
 end
 
-local function bytesToNum(s, i)
-    local v = 0
-    for j = i, i + 3 do v = v * 256 + string.byte(s, j) end
-    return v
+module.Size = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y,IsLooped)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Size = UDim2.new(x,0,y,0)}):Play()
+
 end
 
-local function preprocess(msg)
-    local len = #msg
-    local extra = (64 - ((len + 9) % 64)) % 64
-    return msg .. string.char(128) .. string.rep(string.char(0), extra) .. numToBytes(8 * len, 8)
+module.SizeOff = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y,IsLooped)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Size = UDim2.new(0,x,0,y)}):Play()
+
 end
 
-local function digestBlock(msg, index, hash)
-    local w = {}
-    for j = 1, 16 do w[j] = bytesToNum(msg, index + (j - 1) * 4) end
-    for j = 17, 64 do
-        local v1 = w[j-15]
-        local s0 = bxor(rrotate(v1,7), rrotate(v1,18), rshift(v1,3))
-        local v2 = w[j-2]
-        local s1 = bxor(rrotate(v2,17), rrotate(v2,19), rshift(v2,10))
-        w[j] = add32(w[j-16], s0, w[j-7], s1)
-    end
-    local a,b,c,d,e,f,g,h = hash[1],hash[2],hash[3],hash[4],hash[5],hash[6],hash[7],hash[8]
-    for j = 1, 64 do
-        local s1 = bxor(rrotate(e,6), rrotate(e,11), rrotate(e,25))
-        local ch = bxor(band(e,f), band(bnot(e),g))
-        local t1 = add32(h, s1, ch, SHA256_K[j], w[j])
-        local s0 = bxor(rrotate(a,2), rrotate(a,13), rrotate(a,22))
-        local maj = bxor(band(a,b), band(a,c), band(b,c))
-        local t2 = add32(s0, maj)
-        h,g,f,e,d,c,b,a = g,f,e,add32(d,t1),c,b,a,add32(t1,t2)
-    end
-    hash[1]=add32(hash[1],a) hash[2]=add32(hash[2],b) hash[3]=add32(hash[3],c) hash[4]=add32(hash[4],d)
-    hash[5]=add32(hash[5],e) hash[6]=add32(hash[6],f) hash[7]=add32(hash[7],g) hash[8]=add32(hash[8],h)
+module.Corner = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,s,o)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{CornerRadius = UDim.new(s,o)}):Play()
+
 end
 
-local function sha256Binary(msg)
-    local hash = {0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19}
-    msg = preprocess(msg)
-    for i = 1, #msg, 64 do digestBlock(msg, i, hash) end
-    local o = ""
-    for i = 1, 8 do o = o .. numToBytes(hash[i], 4) end
-    return o
+module.Thickness = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,val)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Thickness = val}):Play()
+
 end
 
-local function toHex(s)
-    return (s:gsub(".", function(c) return string.format("%02x", string.byte(c)) end))
+module.SliceScale = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,val)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{SliceScale = val}):Play()
 end
 
-local function sha256Hex(s) return toHex(sha256Binary(s)) end
+module.SliceCenter = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,X0,Y0,X1,Y1)
 
-local function kick(msg)
-    local p = Players.LocalPlayer
-    if p then p:Kick(msg) else error(msg) end
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{SliceCenter = Rect.new(X0,Y0,X1,Y1)}):Play()
 end
 
-local function assertNoHttpSpy()
-    if DISABLE_ANTI_HTTP_SPY then return end
-    local env = getgenv and getgenv() or _G
-    local markers = {"HttpSpy","HTTPSpy","httpspy","__httpspy","__httpSpy","requestSpy","RequestSpy","HTTPRequestLogger","SimpleSpy"}
-    for _, name in ipairs(markers) do
-        local ok, v = pcall(function() return rawget(env, name) end)
-        if ok and v ~= nil then kick("HTTP spy detected") end
-    end
+module.TileSize = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{TileSize = UDim2.new(x,0,y,0)}):Play()
 end
 
-local function getRequestFunction()
-    local env = getgenv and getgenv() or _G
-    if syn and syn.request then return syn.request end
-    if http and http.request then return http.request end
-    if request then return request end
-    if env and env.request then return env.request end
-    kick("Unsupported executor")
+module.TextTween = function(way,parent,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,value)
+	
+	local IntClone = Instance.new("IntValue")
+	
+	IntClone.Parent = parent
+	
+	IntClone.Value = value
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Value = tostring(value)}):Play()
+
 end
 
-local function getHeader(response, name)
-    local headers = response.Headers or response.headers or {}
-    local target = string.lower(name)
-    for k, v in pairs(headers) do
-        if string.lower(tostring(k)) == target then return tostring(v) end
-    end
-    return nil
+module.BounceFrame = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y,valx,valy,valx2,valy2)
+
+	local tweenplay1 = TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Position = UDim2.new(x+valx,0,y+valy,0)})
+	
+	local tweenplay2 = TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Position = UDim2.new(x,0,y,0)})
+	
+	local tweenplay3 = TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Position = UDim2.new(x-valx2,0,y-valy2,0)})
+	
+	local tweenplay4 = TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Position = UDim2.new(x,0,y,0)})
+	
+	tweenplay1:Play()
+	
+	tweenplay1.Completed:Connect(function()
+		tweenplay2:Play()
+		
+		tweenplay2.Completed:Connect(function()
+			tweenplay3:Play()
+			
+			tweenplay3.Completed:Connect(function()
+				tweenplay4:Play()
+			end)
+			
+		end)
+		
+	end)
+	
 end
 
-local function assertHex(text)
-    if type(text) ~= "string" or (#text % 2) ~= 0 or not text:match("^[0-9a-fA-F]+$") then
-        kick("Invalid encrypted payload")
-    end
+--OBJECT MODIFICATIONS
+
+
+--COLOR MODULES
+
+module.BackgroundColor = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,r,g,b)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{BackgroundColor3 = Color3.fromRGB(r,g,b)}):Play()
+
 end
 
-local function decryptPayload(encodedHex, hwid, salt)
-    assertHex(encodedHex)
+module.ImageColor = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,r,g,b,IsLooped,rr,gg,bb)
 
-    local seed = table.concat({
-        tostring(hwid),
-        "loader-stream",
-        tostring(salt),
-    }, "\n")
+	local tweenplay = TweenService:Create(way, 
 
-    local out     = {}
-    local block   = ""
-    local counter = 0
-    local idx     = 1
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
 
-    for pos = 1, #encodedHex, 2 do
-        if ((idx - 1) % 32) == 0 then
-            block   = sha256Binary(seed .. "\n" .. tostring(counter))
-            counter = counter + 1
-        end
-        local byte    = tonumber(encodedHex:sub(pos, pos + 1), 16)
-        local keyByte = string.byte(block, ((idx - 1) % 32) + 1)
-        out[idx] = string.char(bxor(byte, keyByte))
-        idx = idx + 1
-    end
+		{ImageColor3 = Color3.fromRGB(r,g,b)})
+	
+	tweenplay:Play()
+	
+	if IsLooped then
+		tweenplay.Completed:Connect(function()
+			local tweenplay2 = TweenService:Create(way, 
 
-    return table.concat(out)
+				TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+				{ImageColor3 = Color3.fromRGB(rr,gg,bb)})
+			tweenplay2:Play()
+		end)
+	end
+
 end
 
-local function sharedProof(secret, parts)
-    local t = { tostring(secret) }
-    for i = 1, #parts do t[#t+1] = tostring(parts[i]) end
-    return sha256Hex(table.concat(t, "\n"))
+module.TextColor = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,r,g,b)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{TextColor3 = Color3.fromRGB(r,g,b)}):Play()
+
 end
 
-assertNoHttpSpy()
+module.Color = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,r,g,b)
 
-local requestFunc = getRequestFunction()
-local hwid        = Analytics:GetClientId()
+	TweenService:Create(way, 
 
-local response = requestFunc({
-    Url    = tostring(WORKER_BASE_URL):gsub("/+$", "") .. "?key=" .. LOADER_KEY,
-    Method = "GET",
-    Headers = {
-        ["hwid"]             = hwid,
-        ["roblox-place-id"]  = tostring(game.PlaceId),
-        ["roblox-session-id"]= tostring(game.JobId or ""),
-    },
-})
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
 
-local status = response and (response.StatusCode or response.Status or response.status_code)
-if not response or tonumber(status) ~= 200 then
-    warn("Loader fetch failed:", status)
-    return
+		{Color = Color3.fromRGB(r,g,b)}):Play()
+
 end
 
-local encoded      = tostring(response.Body or "")
-local salt         = getHeader(response, "x-payload-salt")
-local payloadHash  = getHeader(response, "x-payload-hash")
-local payloadProof = getHeader(response, "x-payload-proof")
+--COLOR MODULES
 
-if not salt or not payloadHash or not payloadProof then
-    kick("Missing integrity headers")
+
+--TRANSPARENCYMODULES
+
+module.BackgroundTransparency = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
+
+	TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{BackgroundTransparency = Value}):Play()
+
 end
 
-payloadHash  = string.lower(payloadHash)
-payloadProof = string.lower(payloadProof)
+module.TextTransparency = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
 
-local expectedProof = sharedProof(hwid, {
-    "loader-payload",
-    hwid,
-    salt,
-    payloadHash,
-    tostring(#encoded),
-})
+	TweenService:Create(way, 
 
-if payloadProof ~= expectedProof then
-    kick("Payload proof mismatch")
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{TextTransparency = Value}):Play()
+
 end
 
-assertNoHttpSpy()
+module.ImageTransparency = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
 
-local scriptSource = decryptPayload(encoded, hwid, salt)
+	TweenService:Create(way, 
 
-if sha256Hex(scriptSource) ~= payloadHash then
-    kick("Script integrity check failed")
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{ImageTransparency = Value}):Play()
+
 end
 
-local loader = loadstring or load
-if not loader then kick("loadstring unavailable") end
+module.Transparency = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
 
-local func, err = loader(scriptSource)
-if not func then kick("Load error: " .. tostring(err)) end
+	TweenService:Create(way, 
 
-return func()
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Transparency = Value}):Play()
+
+end
+
+module.Rotation = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value,IsLooped,ResetValue)
+
+	local tween = TweenService:Create(way, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Rotation = Value})
+	
+		tween:Play()
+	
+	if IsLooped == true then
+		
+		tween.Completed:Connect(function()
+			way.Rotation = ResetValue
+		end)
+		
+	else
+		
+	end
+
+end
+
+module.GradientOffset = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,x,y,IsLooped,ResetValueX,ResetValueY)
+
+local tween =	TweenService:Create(way.UIGradient, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Offset = Vector2.new(x,y)})
+	
+	tween:Play()
+	
+	if IsLooped == true then
+
+		tween.Completed:Connect(function()
+			way.UIGradient.Offset = Vector2.new(ResetValueX,ResetValueY)
+		end)
+		end
+		
+	end
+
+--TRANSPARENCY MODULES
+
+--EFFECT MODULES
+
+module.FOV = function(speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
+	TweenService:Create(camera, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{FieldOfView = Value}):Play()
+end
+
+--EFFECT MODULES
+
+
+--SOUNDS
+
+module.SoundActivation = function(way,FolderName,SoundName)
+	local SoundClone = script.Parent[FolderName][SoundName]:Clone()
+	SoundClone.Parent = way
+	wait()
+	SoundClone.Playing = true
+	SoundClone.es.Enabled = true
+end
+
+--SOUNDS
+
+--EXTRA
+
+module.Loading = function(way,perc)
+	TweenService:Create(way, TweenInfo.new(0.2,Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Size = UDim2.fromScale(perc/100, 1)}):Play()	
+end
+
+module.AppearEffect = function(way,m,n,StaticSpeed,IsRspeed,f,t,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,y)
+	
+	--Size
+
+	local AbsoluteSizeX = way.AbsoluteSize.X
+
+	local AbsoluteSizeY = way.AbsoluteSize.Y
+
+	--Size
+
+	--Randomize
+
+	local RandomizeX = math.random(0,AbsoluteSizeX)
+
+	local RandomSize = math.random(m,n)
+	
+	local RandomSpeed = math.random(f,t)
+
+	--Randomize
+	
+	wait()
+	
+	--Main
+
+	local Clone = way.Icon:Clone()
+	
+	Clone.Parent = way
+
+	Clone.Visible = true
+
+	Clone.Size = UDim2.new(0,RandomSize,0,RandomSize)
+	
+	Clone.Position = UDim2.new(0,RandomizeX,1.2,0)
+	
+	wait()  
+	
+	if IsRspeed == true then
+		
+		local TweenSpawn = TweenService:Create(Clone, 
+
+			TweenInfo.new(RandomSpeed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+			{Position = UDim2.new(0,Clone.Position.X.Offset,y,0)})
+
+		TweenSpawn:Play()
+
+		TweenSpawn.Completed:Connect(function()
+			Clone:Destroy()
+		end)
+		
+	else
+		
+
+		local TweenSpawn = TweenService:Create(Clone, 
+
+			TweenInfo.new(StaticSpeed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+			{Position = UDim2.new(0,Clone.Position.X.Offset,y,0)})
+
+		TweenSpawn:Play()
+
+		TweenSpawn.Completed:Connect(function()
+			Clone:Destroy()
+		end)
+		
+	end
+	
+	--Main
+		
+end
+
+module.ThreeDRotation = function(way,rangeX,rangeY,speed,offset,IsReversed)
+	local rangeX = rangeX  -- Range of rotationX
+	local rangeY = rangeY -- Range of rotationY
+	local speed = speed  -- Speed of rotation
+	local offset = offset -- Position offset from the top-left corner
+	
+	if IsReversed == true then
+		local t = tick()
+		local xPos = offset - math.sin(t * speed) * rangeX
+		local yPos = offset - math.cos(t * speed) * rangeY
+		way.Position = UDim2.fromScale(xPos, yPos)
+	else
+		local t = tick()
+		local xPos = offset + math.sin(t * speed) * rangeX
+		local yPos = offset + math.cos(t * speed) * rangeY
+		way.Position = UDim2.fromScale(xPos, yPos)
+	end
+end
+
+module.ScaleObjectAppear = function(way,speed,EasingStyleType,EasingDirectionType,RepeatCount,IsReversed,Value)
+	
+	local Clone = Core.DecalsHandle.AppearSEffect:Clone()
+	
+	Clone.Position = UDim2.new(0,Mouse.X-way.AbsolutePosition.X,0,Mouse.Y-way.AbsolutePosition.Y)
+	Clone.Parent = way
+	Clone.Visible = true
+	Clone.UIScale.Scale = 0
+	
+	local TweenSpawn = TweenService:Create(Clone.UIScale, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{Scale = Value})
+	
+	local TweenSpawn2 = TweenService:Create(Clone, 
+
+		TweenInfo.new(speed, Enum.EasingStyle[EasingStyleType], Enum.EasingDirection[EasingDirectionType],RepeatCount,IsReversed),
+
+		{ImageTransparency = 1})
+	
+
+	TweenSpawn:Play()
+	
+	task.wait()
+	
+	TweenSpawn2:Play()
+	
+	TweenSpawn2.Completed:Connect(function()
+		Clone:Destroy()
+	end)
+	
+end
+
+module.RandomizeTypingEffect = function(way,ttext,speed,IsSound)
+	
+	local function generateRandomCharacter()
+		local symbols = {"#", "@", ".", "&", "$", "^", "*", "_", "~"}
+		return symbols[math.random(1, #symbols)]
+	end
+
+	local text = ttext
+	local displayedText = ""
+
+	for i = 1, #text do
+		local randomCharacter = generateRandomCharacter()
+		
+		way.Text = ""
+		
+		way.TextTransparency = 0
+		
+		displayedText = displayedText .. randomCharacter
+		way.Text = displayedText
+		if IsSound == true then
+			module.SoundActivation(way,"LoadingMenuSounds","Appear3")
+		else
+			
+		end
+		task.wait(speed)
+
+		displayedText = displayedText:sub(1, -2) .. text:sub(i, i) 
+		way.Text = displayedText
+		task.wait(speed)
+	end
+	
+	
+end
+
+--EXTRA
+
+return module
+
+end;
+};
+-- StarterGui.SwaggaSystems107Universal.Anims.Handle
+local function C_60()
+local script = G2L["60"];
+	-- handle: UI key system, multi-mode auth
+	local HttpService = game:GetService("HttpService")
+	local Analytics = game:GetService("RbxAnalyticsService")
+	local Players = game:GetService("Players")
+	
+	local requestFunc
+	if syn and syn.request then requestFunc=syn.request
+	elseif http and http.request then requestFunc=http.request
+	elseif fluxus and fluxus.request then requestFunc=fluxus.request
+	elseif getgenv().request then requestFunc=getgenv().request
+	elseif request then requestFunc=request
+	else error("Unsupported exploit") end
+	
+	-- ==================== CRYPTO (идентично script 1) ====================
+	local bit = bit32
+	if not bit then
+		bit = {}
+		local MOD = 4294967296
+		local function norm(n) return n%MOD end
+		local function bxor2(a,b) a,b=norm(a),norm(b); local r,v=0,1; for _=0,31 do local aa,bb=a%2,b%2; if aa~=bb then r=r+v end; a=(a-aa)/2;b=(b-bb)/2;v=v*2 end; return r end
+		local function band2(a,b) a,b=norm(a),norm(b); local r,v=0,1; for _=0,31 do local aa,bb=a%2,b%2; if aa==1 and bb==1 then r=r+v end; a=(a-aa)/2;b=(b-bb)/2;v=v*2 end; return r end
+		local function bor2(a,b)  a,b=norm(a),norm(b); local r,v=0,1; for _=0,31 do local aa,bb=a%2,b%2; if aa==1 or bb==1 then r=r+v end; a=(a-aa)/2;b=(b-bb)/2;v=v*2 end; return r end
+		function bit.bxor(a,b,...) local r=bxor2(a,b); for i=1,select("#",...)do r=bxor2(r,select(i,...))end; return r end
+		function bit.band(a,b,...) local r=band2(a,b); for i=1,select("#",...)do r=band2(r,select(i,...))end; return r end
+		function bit.bor(a,b,...)  local r=bor2(a,b);  for i=1,select("#",...)do r=bor2(r,select(i,...))end;  return r end
+		function bit.bnot(a) return 4294967295-norm(a) end
+		function bit.rshift(a,d) if d>=32 then return 0 end; return math.floor(norm(a)/(2^d)) end
+		function bit.lshift(a,d) if d>=32 then return 0 end; return norm(norm(a)*(2^d)) end
+		function bit.rrotate(a,d) d=d%32; if d==0 then return norm(a) end; return bit.bor(bit.rshift(a,d),bit.lshift(a,32-d)) end
+	end
+	local bxor,band,bnot,rshift,rrotate=bit.bxor,bit.band,bit.bnot,bit.rshift,bit.rrotate
+	local function add32(...) local r=0; for i=1,select("#",...)do r=(r+select(i,...))%4294967296 end; return r end
+	local SHA256_K={0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2}
+	local function numToBytes(v,n) local o=""; for _=1,n do local b=v%256;o=string.char(b)..o;v=(v-b)/256 end; return o end
+	local function bytesToNum(s,i) local v=0; for j=i,i+3 do v=v*256+string.byte(s,j) end; return v end
+	local function preprocess(msg) local len=#msg; local extra=(64-((len+9)%64))%64; return msg..string.char(128)..string.rep(string.char(0),extra)..numToBytes(8*len,8) end
+	local function digestBlock(msg,idx,hash)
+		local w={}; for j=1,16 do w[j]=bytesToNum(msg,idx+(j-1)*4) end
+		for j=17,64 do local v1=w[j-15];local s0=bxor(rrotate(v1,7),rrotate(v1,18),rshift(v1,3));local v2=w[j-2];local s1=bxor(rrotate(v2,17),rrotate(v2,19),rshift(v2,10));w[j]=add32(w[j-16],s0,w[j-7],s1) end
+		local a,b,c,d,e,f,g,h=hash[1],hash[2],hash[3],hash[4],hash[5],hash[6],hash[7],hash[8]
+		for j=1,64 do local s1=bxor(rrotate(e,6),rrotate(e,11),rrotate(e,25));local ch=bxor(band(e,f),band(bnot(e),g));local t1=add32(h,s1,ch,SHA256_K[j],w[j]);local s0=bxor(rrotate(a,2),rrotate(a,13),rrotate(a,22));local maj=bxor(band(a,b),band(a,c),band(b,c));local t2=add32(s0,maj);h=g;g=f;f=e;e=add32(d,t1);d=c;c=b;b=a;a=add32(t1,t2) end
+		hash[1]=add32(hash[1],a);hash[2]=add32(hash[2],b);hash[3]=add32(hash[3],c);hash[4]=add32(hash[4],d);hash[5]=add32(hash[5],e);hash[6]=add32(hash[6],f);hash[7]=add32(hash[7],g);hash[8]=add32(hash[8],h)
+	end
+	local function sha256Binary(msg) local hash={0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19}; msg=preprocess(msg); for i=1,#msg,64 do digestBlock(msg,i,hash) end; local o=""; for i=1,8 do o=o..numToBytes(hash[i],4) end; return o end
+	local function toHexStr(s) return (s:gsub(".",function(c)return string.format("%02x",string.byte(c))end)) end
+	local function sha256Hex(s) return toHexStr(sha256Binary(s)) end
+	local function sharedProof(secret,parts) local out={tostring(secret)}; for i=1,#parts do out[#out+1]=tostring(parts[i]) end; return sha256Hex(table.concat(out,"\n")) end
+	local function decryptPayload(encodedHex,credential,mode,hwid,placeid,scriptName,nonce,salt)
+		local seed=table.concat({tostring(credential),"v2-stream",tostring(mode),tostring(hwid),tostring(placeid),tostring(scriptName),tostring(nonce),tostring(salt)},"\n")
+		local out={};local block="";local counter=0;local outIdx=1
+		for pos=1,#encodedHex,2 do
+			if((outIdx-1)%32)==0 then block=sha256Binary(seed.."\n"..tostring(counter));counter=counter+1 end
+			local byte=tonumber(encodedHex:sub(pos,pos+1),16)
+			local keyByte=string.byte(block,((outIdx-1)%32)+1)
+			out[outIdx]=string.char(bxor(byte,keyByte));outIdx=outIdx+1
+		end
+		return table.concat(out)
+	end
+	local function getHeader(response,name) local headers=response.Headers or response.headers or {}; local target=string.lower(name); for k,v in pairs(headers) do if string.lower(tostring(k))==target then return tostring(v) end end; return nil end
+	-- ==================== END CRYPTO ====================
+	
+	-- ==================== ANTI HTTPSPY ====================
+	local function isLowSync() return not hookfunction or not getupvalues or not hookmetamethod end
+	local function checkHttpSpy()
+		if isLowSync() then return end
+		local env=getgenv and getgenv() or _G
+		local markers={"HttpSpy","HTTPSpy","httpspy","__httpspy","__httpSpy","requestSpy","RequestSpy","HTTPRequestLogger","SimpleSpy"}
+		for _,name in ipairs(markers) do
+			local ok,v=pcall(function()return rawget(env,name)end)
+			if ok and v~=nil then game:GetService("Players").LocalPlayer:Kick("Security check failed."); return end
+		end
+	end
+	checkHttpSpy()
+	-- ==================== END ANTI HTTPSPY ====================
+	
+	local AnimModule = require(script.Parent.AnimHandle)
+	local player = Players.LocalPlayer
+	local gui = player.PlayerGui:WaitForChild("SwaggaSystems107Universal")
+	local Background = gui.Background
+	local Top = Background.Top
+	local Logs = gui.Background.KeyLogs
+	
+	AnimModule.Scale(Background,0,"Linear","InOut",0,false,0)
+	AnimModule.Scale(Logs,0,"Linear","InOut",0,false,0)
+	
+	local currentTime=os.date("*t"); local hours=currentTime.hour; local minutes=currentTime.min
+	local period="AM"
+	if hours>=12 then period="PM"; if hours>12 then hours=hours-12 end
+	elseif hours==0 then hours=12 end
+	local formattedTime=string.format("%d:%s %s",hours,string.format("%02d",minutes),period)
+	
+	local function notifappear(name,info)
+		local clone=Logs.KHandle[name]:Clone()
+		clone.Parent=Logs.ScrollingFrame; clone.Visible=true
+		clone.UIScale.Scale=0; clone.Reason.TextTransparency=1; clone.Time.TextTransparency=1
+		clone.ico.ImageTransparency=1; clone.ico.UIScale.Scale=0
+		clone.Time.Text=formattedTime; clone.Reason.Text=info
+		AnimModule.Scale(clone,0.1,"Linear","InOut",0,false,1); task.wait(0.1)
+		AnimModule.Scale(clone.ico,0.3,"Linear","InOut",0,false,1)
+		AnimModule.ImageTransparency(clone.ico,0.6,"Linear","InOut",0,false,0); task.wait(0.1)
+		AnimModule.TextTransparency(clone.Reason,0.3,"Linear","InOut",0,false,0)
+		AnimModule.TextTransparency(clone.Time,0.3,"Linear","InOut",0,false,0.6)
+		AnimModule.Position(clone.Reason,0.3,"Linear","InOut",0,true,clone.Reason.Position.X.Scale,clone.Reason.Position.Y.Scale+0.1)
+		AnimModule.Position(clone.Time,0.3,"Linear","InOut",0,true,clone.Time.Position.X.Scale,clone.Time.Position.Y.Scale+0.1)
+		task.wait(3)
+		AnimModule.Position(clone.Reason,0.3,"Linear","InOut",0,true,clone.Reason.Position.X.Scale,clone.Reason.Position.Y.Scale-0.1)
+		AnimModule.Position(clone.Time,0.3,"Linear","InOut",0,true,clone.Time.Position.X.Scale,clone.Time.Position.Y.Scale-0.1)
+		AnimModule.TextTransparency(clone.Reason,0.3,"Linear","InOut",0,false,1)
+		AnimModule.TextTransparency(clone.Time,0.3,"Linear","InOut",0,false,1); task.wait(0.1)
+		AnimModule.Scale(clone.ico,0.3,"Linear","InOut",0,false,0)
+		AnimModule.ImageTransparency(clone.ico,0.6,"Linear","InOut",0,false,1); task.wait(0.6)
+		AnimModule.Scale(clone,0.1,"Linear","InOut",0,false,0); task.wait(0.1)
+		clone:Destroy()
+	end
+	
+	-- hover (без изменений)
+	Background.MouseEnter:Connect(function() AnimModule.Position(Background,0.3,"Linear","Out",0,false,Background.Position.X.Scale,Background.Position.Y.Scale-0.01) end)
+	Background.MouseLeave:Connect(function() AnimModule.Position(Background,0.1,"Linear","Out",0,false,Background.Position.X.Scale,0.5) end)
+	Logs.MouseEnter:Connect(function() AnimModule.Position(Logs,0.3,"Linear","Out",0,false,Logs.Position.X.Scale,Logs.Position.Y.Scale-0.01) end)
+	Logs.MouseLeave:Connect(function() AnimModule.Position(Logs,0.1,"Linear","Out",0,false,Logs.Position.X.Scale,0.5) end)
+	Background.Verify.MouseEnter:Connect(function() AnimModule.ImageTransparency(Background.Verify.Neo,0.3,"Linear","Out",0,false,0.5) end)
+	Background.Verify.MouseLeave:Connect(function() AnimModule.ImageTransparency(Background.Verify.Neo,0.3,"Linear","Out",0,false,1) end)
+	Background.Verify.MouseButton1Down:Connect(function() AnimModule.Scale(Background.Verify,0.1,"Linear","Out",0,true,0.9) end)
+	Background.GetKey.MouseEnter:Connect(function() AnimModule.ImageTransparency(Background.GetKey.Magneo,0.3,"Linear","Out",0,false,0.5) end)
+	Background.GetKey.MouseLeave:Connect(function() AnimModule.ImageTransparency(Background.GetKey.Magneo,0.3,"Linear","In",0,false,1) end)
+	Background.SelectMethod.MouseEnter:Connect(function() AnimModule.Transparency(Background.SelectMethod.UIShadow,0.3,"Linear","Out",0,false,0.5) end)
+	Background.SelectMethod.MouseLeave:Connect(function() AnimModule.Transparency(Background.SelectMethod.UIShadow,0.3,"Linear","In",0,false,1) end)
+	
+	-- SelectMethod: Paid / Work.Ink / LootLab → AUTH_MODE: paid / free / lootlab
+	local SelectedMethod = "Paid"
+	local METHOD_TO_MODE = { Paid="paid", ["Work.Ink"]="free", LootLab="lootlab" }
+	local METHOD_URLS = {
+		["Work.Ink"] = "https://work.ink/1XLW/key-system",
+		LootLab      = "https://universalauth.capsov.workers.dev/lootlab/start",
+		Paid         = "https://discord.gg/vkzkBxxhZz",
+	}
+	local METHOD_COLORS = {
+		Paid         = {96,47,255},
+		["Work.Ink"] = {87,198,105},
+		LootLab      = {255,60,60},
+	}
+	
+	Background.SelectMethod.MouseButton1Down:Connect(function()
+		AnimModule.Scale(Background.SelectMethod,0.3,"Linear","Out",0,true,0.9)
+		if SelectedMethod=="Paid" then SelectedMethod="Work.Ink"
+		elseif SelectedMethod=="Work.Ink" then SelectedMethod="LootLab"
+		else SelectedMethod="Paid" end
+		local col=METHOD_COLORS[SelectedMethod]
+		Background.SelectMethod.TextLabel.Text=SelectedMethod
+		AnimModule.Color(Background.SelectMethod.UIShadow,0.3,"Quad","Out",0,false,col[1],col[2],col[3])
+		AnimModule.BackgroundColor(Background.SelectMethod,0.3,"Quad","Out",0,false,col[1],col[2],col[3])
+	end)
+	Background.SelectMethod.Activated:Connect(function() AnimModule.Scale(Background.SelectMethod,0.3,"Linear","Out",0,false,1) end)
+	
+	Background.GetKey.MouseButton1Down:Connect(function()
+		AnimModule.Scale(Background.GetKey,0.3,"Linear","Out",0,true,0.9)
+		if not game:IsA("Studio") then
+			setclipboard(METHOD_URLS[SelectedMethod] or "")
+			notifappear("Check1","Copied")
+		end
+	end)
+	Background.GetKey.Activated:Connect(function() AnimModule.Scale(Background.GetKey,0.3,"Linear","Out",0,false,1) end)
+	
+	-- constants
+	local hwid = tostring(Analytics:GetClientId())
+	local fileName = "roblox_auth_token.txt"
+	local placeId = game.PlaceId
+	local WORKER_BASE_URL = "https://universalauth.capsov.workers.dev"
+	local ENDPOINTS = { paid="/auth/paid", free="/auth/free", lootlab="/auth/lootlab" }
+	
+	local PLACE_SCRIPTS = {
+		[4639625707]="war_tyc",  [3738115442]="box_leag", [3738091713]="box_leag",
+		[4574912733]="box_leag", [5161312636]="box_leag", [4972273297]="regret",
+		[18687417158]="fors",    [126509999114328]="99_nig",
+	}
+	
+	local function resolveScriptName(pid) return PLACE_SCRIPTS[pid] end
+	
+	-- Verify
+	Background.Verify.Activated:Connect(function()
+		AnimModule.Scale(Background.Verify,0.3,"Linear","Out",0,false,1)
+	
+		local credential = Background.KeyBox.TextBox.Text or ""
+		if credential=="" then notifappear("Redcheck","Enter your key"); return end
+	
+		local AUTH_MODE = METHOD_TO_MODE[SelectedMethod] or "paid"
+		local scriptName = resolveScriptName(placeId)
+		if not scriptName then
+			notifappear("Redcheck","Not Supported Game")
+			player:Kick("Not Supported Game!"); return
+		end
+	
+		local nonce = HttpService:GenerateGUID(false).."-"..tostring(math.random(100000,999999))
+		local ts = tostring(os.time())
+		local placeidStr = tostring(placeId)
+	
+		local proof = sharedProof(credential, {
+			"v2-auth", AUTH_MODE, hwid, placeidStr, scriptName, nonce, ts
+		})
+
+		local player = Game:GetService("Players").LocalPlayer
+	
+		local headers = {
+			["hwid"]            = hwid,
+			["placeid"]         = placeidStr,
+			["nonce"]           = nonce,
+			["script-name"]     = scriptName,
+			["x-ts"]            = ts,
+			["x-client-proof"]  = proof,
+			["roblox-place-id"] = placeidStr,
+			["roblox-session-id"] = tostring(game.JobId or ""),
+			["Roblox-User-Id"] = tostring(player.UserId or ""),
+			["Roblox-Username"] = player.Name or "",
+			["DisplayUsername"] = player.DisplayName or "",
+		}
+	
+		-- credential header зависит от режима
+		if AUTH_MODE=="free" then
+			headers["X-Token"] = credential
+		elseif AUTH_MODE=="lootlab" then
+			headers["lootlab-key"] = credential
+		else
+			headers["key"] = credential
+		end
+	
+		local url = WORKER_BASE_URL .. ENDPOINTS[AUTH_MODE]
+	
+		local ok, res = pcall(function()
+			return requestFunc({ Url=url, Method="GET", Headers=headers })
+		end)
+	
+		if not ok or not res then
+			notifappear("Redcheck","Request failed")
+			warn("[AUTH] Request failed"); return
+		end
+	
+		if res.StatusCode==200 then
+			local encoded = tostring(res.Body or "")
+			local salt        = getHeader(res,"x-payload-salt")
+			local payloadHash = getHeader(res,"x-payload-hash")
+			local payloadProof= getHeader(res,"x-payload-proof")
+	
+			if not salt or not payloadHash or not payloadProof then
+				notifappear("Redcheck","Missing integrity headers"); return
+			end
+	
+			payloadHash  = string.lower(payloadHash)
+			payloadProof = string.lower(payloadProof)
+	
+			local expectedProof = sharedProof(credential, {
+				"v2-payload", AUTH_MODE, hwid, placeidStr, scriptName, nonce, salt, payloadHash, tostring(#encoded)
+			})
+	
+			if payloadProof~=expectedProof then
+				notifappear("Redcheck","Integrity check failed"); return
+			end
+	
+			local scriptSource = decryptPayload(encoded, credential, AUTH_MODE, hwid, placeidStr, scriptName, nonce, salt)
+	
+			if sha256Hex(scriptSource)~=payloadHash then
+				notifappear("Redcheck","Script integrity failed"); return
+			end
+	
+			local func, err = loadstring(scriptSource)
+			if not func then
+				notifappear("Redcheck","Load failed")
+				warn("[AUTH] loadstring error: "..tostring(err)); return
+			end
+	
+			if writefile then pcall(function() writefile(fileName, credential) end) end
+	
+			notifappear("Check1","Access Allowed")
+			AnimModule.Scale(Background,0.3,"Linear","In",0,false,0)
+			AnimModule.Scale(Logs,0.3,"Linear","In",0,false,0)
+			task.wait(0.3)
+			gui:Destroy()
+			warn("[AUTH] Access Allowed. Loading...")
+			func()
+		else
+			notifappear("Redcheck","Access Denied")
+			warn("[AUTH] Denied. Code:",res.StatusCode,"Body:",tostring(res.Body))
+		end
+	end)
+end;
+task.spawn(C_60);
+-- StarterGui.SwaggaSystems107Universal.Anims.BeforeKey
+local function C_64()
+local script = G2L["64"];
+	-- before key: auto-load from file, paid auth
+	key = "test123"
+	
+	local HttpService = game:GetService("HttpService")
+	local Analytics = game:GetService("RbxAnalyticsService")
+	local AnimModule = require(script.Parent.AnimHandle)
+	
+	local gui = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("SwaggaSystems107Universal")
+	local Background = gui.Background
+	local Top = Background.Top
+	local Logs = Background.KeyLogs
+	local Loading = gui:WaitForChild("Loading")
+	
+	Loading.BackgroundTransparency = 1
+	Loading.Validating.TextTransparency = 1
+	Loading.Ico.ImageTransparency = 1
+	Loading.Motive.TextTransparency = 1
+	Loading.Ready.TextTransparency = 1
+	
+	task.wait()
+	local filePath = "roblox_auth_token.txt"
+	local WORKER_BASE_URL = "https://universalauth.capsov.workers.dev/auth/paid"
+	local AUTH_MODE = "paid"
+	
+	-- ==================== CRYPTO ====================
+	local bit = bit32
+	if not bit then
+		bit = {}
+		local MOD = 4294967296
+		local function norm(n) return n % MOD end
+		local function bxor2(a,b)
+			a,b = norm(a),norm(b)
+			local r,v = 0,1
+			for _=0,31 do
+				local aa,bb = a%2,b%2
+				if aa~=bb then r=r+v end
+				a=(a-aa)/2; b=(b-bb)/2; v=v*2
+			end
+			return r
+		end
+		local function band2(a,b)
+			a,b = norm(a),norm(b)
+			local r,v = 0,1
+			for _=0,31 do
+				local aa,bb = a%2,b%2
+				if aa==1 and bb==1 then r=r+v end
+				a=(a-aa)/2; b=(b-bb)/2; v=v*2
+			end
+			return r
+		end
+		local function bor2(a,b)
+			a,b = norm(a),norm(b)
+			local r,v = 0,1
+			for _=0,31 do
+				local aa,bb = a%2,b%2
+				if aa==1 or bb==1 then r=r+v end
+				a=(a-aa)/2; b=(b-bb)/2; v=v*2
+			end
+			return r
+		end
+		function bit.bxor(a,b,...) local r=bxor2(a,b) for i=1,select("#",...)do r=bxor2(r,select(i,...))end return r end
+		function bit.band(a,b,...) local r=band2(a,b) for i=1,select("#",...)do r=band2(r,select(i,...))end return r end
+		function bit.bor(a,b,...) local r=bor2(a,b) for i=1,select("#",...)do r=bor2(r,select(i,...))end return r end
+		function bit.bnot(a) return 4294967295-norm(a) end
+		function bit.rshift(a,d) if d>=32 then return 0 end return math.floor(norm(a)/(2^d)) end
+		function bit.lshift(a,d) if d>=32 then return 0 end return norm(norm(a)*(2^d)) end
+		function bit.rrotate(a,d) d=d%32 if d==0 then return norm(a) end return bit.bor(bit.rshift(a,d),bit.lshift(a,32-d)) end
+	end
+	
+	local bxor,band,bnot,rshift,rrotate = bit.bxor,bit.band,bit.bnot,bit.rshift,bit.rrotate
+	
+	local function add32(...)
+		local r=0
+		for i=1,select("#",...)do r=(r+select(i,...))%4294967296 end
+		return r
+	end
+	
+	local SHA256_K = {
+		0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+		0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+		0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+		0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+		0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+		0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+		0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+		0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2,
+	}
+	
+	local function numToBytes(v,n)
+		local o=""
+		for _=1,n do local b=v%256; o=string.char(b)..o; v=(v-b)/256 end
+		return o
+	end
+	local function bytesToNum(s,i)
+		local v=0
+		for j=i,i+3 do v=v*256+string.byte(s,j) end
+		return v
+	end
+	local function preprocess(msg)
+		local len=#msg
+		local extra=(64-((len+9)%64))%64
+		return msg..string.char(128)..string.rep(string.char(0),extra)..numToBytes(8*len,8)
+	end
+	local function digestBlock(msg,idx,hash)
+		local w={}
+		for j=1,16 do w[j]=bytesToNum(msg,idx+(j-1)*4) end
+		for j=17,64 do
+			local v1=w[j-15]; local s0=bxor(rrotate(v1,7),rrotate(v1,18),rshift(v1,3))
+			local v2=w[j-2];  local s1=bxor(rrotate(v2,17),rrotate(v2,19),rshift(v2,10))
+			w[j]=add32(w[j-16],s0,w[j-7],s1)
+		end
+		local a,b,c,d,e,f,g,h=hash[1],hash[2],hash[3],hash[4],hash[5],hash[6],hash[7],hash[8]
+		for j=1,64 do
+			local s1=bxor(rrotate(e,6),rrotate(e,11),rrotate(e,25))
+			local ch=bxor(band(e,f),band(bnot(e),g))
+			local t1=add32(h,s1,ch,SHA256_K[j],w[j])
+			local s0=bxor(rrotate(a,2),rrotate(a,13),rrotate(a,22))
+			local maj=bxor(band(a,b),band(a,c),band(b,c))
+			local t2=add32(s0,maj)
+			h=g;g=f;f=e;e=add32(d,t1);d=c;c=b;b=a;a=add32(t1,t2)
+		end
+		hash[1]=add32(hash[1],a);hash[2]=add32(hash[2],b);hash[3]=add32(hash[3],c);hash[4]=add32(hash[4],d)
+		hash[5]=add32(hash[5],e);hash[6]=add32(hash[6],f);hash[7]=add32(hash[7],g);hash[8]=add32(hash[8],h)
+	end
+	local function sha256Binary(msg)
+		local hash={0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19}
+		msg=preprocess(msg)
+		for i=1,#msg,64 do digestBlock(msg,i,hash) end
+		local o="" for i=1,8 do o=o..numToBytes(hash[i],4) end
+		return o
+	end
+	local function toHexStr(s)
+		return (s:gsub(".",function(c)return string.format("%02x",string.byte(c))end))
+	end
+	local function sha256Hex(s) return toHexStr(sha256Binary(s)) end
+	
+	local function sharedProof(secret, parts)
+		local out={tostring(secret)}
+		for i=1,#parts do out[#out+1]=tostring(parts[i]) end
+		return sha256Hex(table.concat(out,"\n"))
+	end
+	
+	local function decryptPayload(encodedHex, credential, mode, hwid, placeid, scriptName, nonce, salt)
+		local seed=table.concat({tostring(credential),"v2-stream",tostring(mode),tostring(hwid),
+			tostring(placeid),tostring(scriptName),tostring(nonce),tostring(salt)},"\n")
+		local out={};local block="";local counter=0;local outIdx=1
+		for pos=1,#encodedHex,2 do
+			if((outIdx-1)%32)==0 then block=sha256Binary(seed.."\n"..tostring(counter));counter=counter+1 end
+			local byte=tonumber(encodedHex:sub(pos,pos+1),16)
+			local keyByte=string.byte(block,((outIdx-1)%32)+1)
+			out[outIdx]=string.char(bxor(byte,keyByte));outIdx=outIdx+1
+		end
+		return table.concat(out)
+	end
+	
+	local function getHeader(response, name)
+		local headers=response.Headers or response.headers or {}
+		local target=string.lower(name)
+		for k,v in pairs(headers) do
+			if string.lower(tostring(k))==target then return tostring(v) end
+		end
+		return nil
+	end
+	-- ==================== END CRYPTO ====================
+	
+	-- ==================== ANTI HTTPSPY ====================
+	local function isLowSync()
+		return not hookfunction or not getupvalues or not hookmetamethod
+	end
+	
+	local function checkHttpSpy()
+		if isLowSync() then return end
+		local env = getgenv and getgenv() or _G
+		local markers = {"HttpSpy","HTTPSpy","httpspy","__httpspy","__httpSpy","requestSpy","RequestSpy","HTTPRequestLogger","SimpleSpy"}
+		for _,name in ipairs(markers) do
+			local ok,v = pcall(function() return rawget(env,name) end)
+			if ok and v~=nil then
+				game:GetService("Players").LocalPlayer:Kick("Security check failed.")
+				return
+			end
+		end
+	end
+	checkHttpSpy()
+	-- ==================== END ANTI HTTPSPY ====================
+	
+	-- request func
+	local requestFunc
+	if syn and syn.request then requestFunc=syn.request
+	elseif http and http.request then requestFunc=http.request
+	elseif fluxus and fluxus.request then requestFunc=fluxus.request
+	elseif getgenv().request then requestFunc=getgenv().request
+	else error("Unsupported exploit") end
+	
+	-- hwid
+	local hwid = tostring(Analytics:GetClientId())
+	local saved_key
+	
+	if isfile and isfile(filePath) then
+		local data = readfile(filePath)
+		local sH,sK = data:match("^(.-)|(.+)$")
+		if sH and sK then hwid=sH; saved_key=sK
+		else saved_key=data end
+	end
+	
+	if saved_key and saved_key~="" then getgenv().key=saved_key
+	else getgenv().key=key end
+	
+	-- place -> script mapping
+	local ids = {
+		[4639625707]="war_tyc", [3738115442]="box_leag", [3738091713]="box_leag",
+		[4574912733]="box_leag", [5161312636]="box_leag", [4972273297]="regret",
+		[18687417158]="fors",    [126509999114328]="99_nig",
+	}
+	local placeid = tostring(game.PlaceId)
+	local placename = ids[game.PlaceId]
+	
+	if not placename then
+		game:GetService("Players").LocalPlayer:Kick("Not Supported Game!")
+		task.wait(0.1); while true do end
+	end
+	
+	-- показываем ошибку через анимацию (хелпер чтобы не дублировать)
+	local function showError(text)
+		AnimModule.BackgroundTransparency(Loading,1,"Linear","Out",0,false,0)
+		task.wait(1)
+		AnimModule.Position(Loading.Ico,0.3,"Linear","InOut",0,true,Loading.Ico.Position.X.Scale,Loading.Ico.Position.Y.Scale-0.1)
+		AnimModule.ImageTransparency(Loading.Ico,1,"Linear","Out",0,false,0)
+		task.wait(0.3)
+		AnimModule.TextTransparency(Loading.Motive,1,"Linear","Out",0,false,0)
+		task.wait(0.3)
+		AnimModule.TextTransparency(Loading.Ready,1,"Linear","Out",0,false,0)
+		task.wait(0.3)
+		AnimModule.TextTransparency(Loading.Validating,1,"Linear","Out",0,false,0)
+		task.wait(1)
+		Loading.Validating.Text = text
+		task.wait(3)
+		AnimModule.ImageTransparency(Loading.Ico,0.3,"Linear","Out",0,false,1)
+		AnimModule.TextTransparency(Loading.Motive,0.3,"Linear","Out",0,false,1)
+		AnimModule.TextTransparency(Loading.Ready,0.3,"Linear","Out",0,false,1)
+		AnimModule.TextTransparency(Loading.Validating,0.3,"Linear","Out",0,false,1)
+		task.wait(0.3)
+		AnimModule.Position(Loading,0.6,"Linear","InOut",0,false,0.405,0.5)
+		AnimModule.SizeOff(Loading,0.6,"Linear","InOut",0,false,411,360)
+		task.wait(1)
+		AnimModule.BackgroundTransparency(Loading,1,"Linear","Out",0,false,1)
+		AnimModule.Scale(Background,0.3,"Linear","Out",0,false,1)
+		task.wait(0.3)
+		AnimModule.Scale(Logs,0.3,"Linear","Out",0,false,1)
+	end
+	
+	if isfile and isfile(filePath) and (getgenv().key and getgenv().key~="") then
+		local credential = getgenv().key
+		local nonce = HttpService:GenerateGUID(false).."-"..tostring(math.random(100000,999999))
+		local ts = tostring(os.time())
+	
+		local proof = sharedProof(credential, {
+			"v2-auth", AUTH_MODE, hwid, placeid, placename, nonce, ts
+		})
+
+		local player = Game:GetService("Players").LocalPlayer
+	
+		local headers = {
+			["hwid"] = hwid,
+			["placeid"] = placeid,
+			["nonce"] = nonce,
+			["script-name"] = placename,
+			["x-ts"] = ts,
+			["x-client-proof"] = proof,
+			["key"] = credential,
+			["roblox-place-id"] = placeid,
+			["roblox-session-id"] = tostring(game.JobId or ""),
+			["Roblox-User-Id"] = tostring(player.UserId or ""),
+			["Roblox-Username"] = player.Name or "",
+			["DisplayUsername"] = player.DisplayName or "",
+		}
+	
+		local ok, res = pcall(function()
+			return requestFunc({ Url=WORKER_BASE_URL, Method="GET", Headers=headers })
+		end)
+	
+		if not ok or not res then
+			showError("Request failed"); return
+		end
+	
+		if res.StatusCode == 200 then
+			local encoded = tostring(res.Body or "")
+			local salt        = getHeader(res, "x-payload-salt")
+			local payloadHash = getHeader(res, "x-payload-hash")
+			local payloadProof= getHeader(res, "x-payload-proof")
+	
+			if not salt or not payloadHash or not payloadProof then
+				showError("Missing integrity headers"); return
+			end
+	
+			payloadHash  = string.lower(payloadHash)
+			payloadProof = string.lower(payloadProof)
+	
+			local expectedProof = sharedProof(credential, {
+				"v2-payload", AUTH_MODE, hwid, placeid, placename, nonce, salt, payloadHash, tostring(#encoded)
+			})
+	
+			if payloadProof ~= expectedProof then
+				showError("Integrity check failed"); return
+			end
+	
+			local scriptSource = decryptPayload(encoded, credential, AUTH_MODE, hwid, placeid, placename, nonce, salt)
+	
+			if sha256Hex(scriptSource) ~= payloadHash then
+				showError("Script integrity failed"); return
+			end
+	
+			local func, err = loadstring(scriptSource)
+			if not func then
+				showError("Failed to load script"); warn(err); return
+			end
+	
+			if writefile then pcall(function() writefile(filePath, credential) end) end
+			func()
+		else
+			showError("Key invalid or expired")
+			warn("Auth failed", res.StatusCode, res.Body)
+		end
+	else
+		showError("Key file not found")
+		warn("Key file not found.")
+	end
+end;
+task.spawn(C_64);
+
+return G2L["1"], require;
