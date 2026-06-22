@@ -152,7 +152,6 @@ local function getRequestFunction()
     local env = getgenv and getgenv() or _G
     if syn and syn.request then return syn.request end
     if http and http.request then return http.request end
-    if fluxus and fluxus.request then return fluxus.request end
     if request then return request end
     if env and env.request then return env.request end
     kick("Unsupported executor")
