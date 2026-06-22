@@ -212,7 +212,7 @@ local requestFunc = getRequestFunction()
 local hwid        = Analytics:GetClientId()
 
 local response = requestFunc({
-    Url    = tostring(WORKER_BASE_URL):gsub("/+$", "") .. "?key=" .. LOADER_KEY,
+    Url    = string.format("%s/?key=%s", WORKER_BASE_URL:gsub("/+$",""), LOADER_KEY),
     Method = "GET",
     Headers = {
         ["hwid"]             = hwid,
